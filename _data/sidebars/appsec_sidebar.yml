@@ -1,0 +1,137 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: appsec-hitema
+  version: 0.1
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Introduction
+    output: web, pdf
+    folderitems:
+
+    - title: Quelques exemples
+      url: /appsec_intro_index.html
+      output: web, pdf
+      type: homepage
+
+    - title: Définitions
+      url: /appsec_intro_definition.html
+      output: web, pdf
+
+    - title: Objectifs de la sécurité
+      url: /appsec_intro_objectifs.html
+      output: web, pdf
+
+    - title: Menaces et gestion du risque
+      url: /appsec_threat_and_risk.html
+      output: web, pdf
+
+    - title: Support
+      url: /appsec_support.html
+      output: web, pdf
+
+  - title: Architecture
+    output: web, pdf
+    folderitems:
+
+    - title: Quelques rappels
+      url: /appsec_archi_rappels.html
+      output: web, pdf
+
+    - title: Principes
+      url: /appsec_archi_principles.html
+      output: web, pdf
+
+    - title: Architecture technique
+      url: /appsec_archi_technical.html
+      output: web, pdf
+
+    - title: Architecture logicielle
+      url: /appsec_archi_software.html
+      output: web, pdf
+
+    - title: Architecture fonctionnelle
+      url: /appsec_archi_fonctionnal.html
+      output: web, pdf
+
+    - title: Modélisation appliquée à la sécurité
+      url: /appsec_archi_design.html
+      output: web, pdf
+
+    - title: Cloud et sécurité
+      url: /appsec_archi_security.html
+      output: web, pdf
+
+  - title: AppSec Web
+    output: web, pdf
+    folderitems:
+
+    - title: Rappels sur le web
+      url: /appsec_web_rappels.html
+      output: web, pdf
+
+    - title: Top 10 OWASP WEB
+      url: /appsec_web_top10_owasp.html
+      output: web, pdf
+
+  - title: AppSec Mobile
+    output: web, pdf
+
+    folderitems:
+    - title: Rappels et Contexte
+      url: /appsec_mobile_rappels.html
+      output: web, pdf
+
+    - title: Bonnes pratiques
+      url: /appsec_mobile_best_practices.html
+      output: web, pdf
+
+    - title: Top 10 OWASP Mobile
+      url: /appsec_mobile_top10.html
+      output: web, pdf
+
+  - title: Développement sécurisé
+    output: web, pdf
+
+    folderitems:
+    - title: Secure Coding
+      url: /appsec_secure_coding.html
+      output: web, pdf
+
+    - title: Qualité logicielle et sécurité
+      url: /appsec_secure_quality.html
+      output: web, pdf
+
+    - title: DevSecOps
+      url: /appsec_secure_devsecops.html
+      output: web, pdf
+
+  - title: Cycle de développement sécurisé
+    output: web, pdf
+
+    folderitems:
+    - title: Rappels (Cycle en V, méthodes Agile)
+      url: /appsec_sdlc_rappels.html
+      output: web, pdf
+
+    - title: Microsoft SDLC
+      url: /appsec_sdlc_microsoft.html
+      output: web, pdf
+
+    - title: OWASP SAMM
+      url: /appsec_sdlc_samm.html
+      output: web, pdf

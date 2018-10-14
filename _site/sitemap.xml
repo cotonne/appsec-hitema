@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://localhost:4000/samplepost.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/myupdate.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/test-post-from-last-year.html</loc>
+  </url>
+  
+  
+
+
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_intro_definition</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_intro_index</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/news.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/news_archive.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/assets/css/style.css</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_design.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_fonctionnal.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_principles.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_rappels.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_security.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_software.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_archi_technical.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_intro_objectifs.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_mobile_best_practices.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_mobile_rappels.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_mobile_top10.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_sdlc_microsoft.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_sdlc_rappels.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_sdlc_samm.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_secure_coding.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_secure_devsecops.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_secure_quality.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_support.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_threat_and_risk.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_web_rappels.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/appsec_web_top10_owasp.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/titlepage.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/appsec/tocpage.html</loc>
+  </url>
+  
+  
+</urlset>
