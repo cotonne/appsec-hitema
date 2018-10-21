@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | AppSec HiTeMa</title>
+<meta name="keywords" content="formatting,  notes, tips, cautions, warnings, admonitions">
+<title>Objectifs de la sécurité applicative | AppSec HiTeMa</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,7 +135,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Objectifs de la sécurité applicative page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -153,7 +153,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Objectifs de la sécurité applicative">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -417,13 +417,15 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">Objectifs de la sécurité applicative</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary"></div>
    
 
     
@@ -458,10 +460,220 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   
+   <h2 id="confidentiality">Confidentiality</h2>
+
+<p>La confidentialité est la capacité d’un système à protéger ses données de lecture non autorisées.
+Le système s’assure que l’information n’est pas accéder par des utilisateurs non autorisés.</p>
+
+<p>La confidentialité est proche de la notion de vie privée (privacy).
+La “vie privée” réfère à la volonté d’une personne ou d’un groupe de personnes à vouloir protéger ses intérets.</p>
+
+<p>La “vie privée” concerne les personnes tandis que la confidentialité s’intéresse à la donnée ou l’information en général.</p>
+
+<p>Les menaces liées à la confidentialité peuvent devenir des problèmes de violations de vie privée, surtout si les données sont confidentielles ou sensible (PII).</p>
+
+<p>On peut penser à différents cas de pertes de confidentialité:</p>
+<ul>
+  <li>Perte d’une clé USB contenant des informations importantes</li>
+  <li>Interception d’une communication (écoutes - en: eavesdropping)</li>
+  <li>Affichage d’une information (Information Disclosuer)</li>
+</ul>
+
+<p>Pour protéger l’information, nous utilisons des techniques de chiffrement (en: to crypt).</p>
+
+<h3 id="chiffrement">Chiffrement</h3>
+
+<p>Le chiffrement est un procédé qui consiste à transformer un message afin de s’assurer que seul le destinaire puisse le lire.</p>
+
+<p>Le chiffrement est utilisé depuis des millénaires. Jules César chiffrait déjà ces messages via une décalage des lettres de l’alphabet.</p>
+
+<p>Nous évoquerons les deux grandes familles de chiffrements: symétrique et asymétrique.</p>
+
+<p>Les élèves sont invitées à lire les livres suivants pour compléter leur compréhension:</p>
+<ul>
+  <li>Un livre d’introduction à la cryptographie (référence à venir)</li>
+  <li>Exercices et problèmes de cryptographie de Damien Vergnaud</li>
+</ul>
+
+<h4 id="principe-de-kerckhoffs">Principe de Kerckhoffs</h4>
+
+<p>Le principe de Kerckhoffs (1883) énonce six propriétés souhaitables d’un cryptosystème.</p>
+
+<p>On s’intéressera sur la deuxième propriété : “<strong>Il faut qu’il n’exige pas le secret, et qu’il puisse sans inconvénient tomber entre les mains de l’ennemi</strong>”.</p>
+
+<p>Cette propriété est importante car elle indique que la sécurité du système ne doit pas reposer uniquement sur le fait que le fonctionnement de celui-ci n’est connu que de nous seul.
+Un exemple: Enigma. Une fois la machine récupérée, l’algorithme a été cassée, ce qui donna un avantage aux Alliées lors de la Seconde Guerre Mondiale.
+De plus, le fait que la sécurité du système repose uniquement sur le secret utilisé permet de faciliter son changement en cas de découverte.
+Dans un système moderne, on peut imaginer la compléxité de changer un algorithme de chiffrement si la sécurité n’est plus assurée parce qu’il a été découverte.
+Il faut toujours supposer que l’attaquant connait le système.</p>
+
+<h4 id="chiffrement-symétrique">Chiffrement symétrique</h4>
+
+<p>Le chiffrement symétrique s’appuie sur une clé secrète partagée entre les deux parties.</p>
+
+<figure><img class="docimage" src="images/20181015-introduction-chiffrement-symetrique.png" alt="" /><figcaption>Chiffrement symétrique</figcaption></figure>
+
+<p>Le principal défi dans un système à chiffrement symétrique est l’échange de manière sécurisée de la clé.</p>
+
+<p>Quelques exemples d’algorithmes:</p>
+<ul>
+  <li>AES</li>
+  <li>Blowfish</li>
+  <li>DES (obsolète), 3DES</li>
+</ul>
+
+<p>Quelques exemples d’attaques</p>
+<ul>
+  <li>Algorithme perso: <strong>ne jamais écrire son propre algorithme!</strong></li>
+  <li>Fréquences</li>
+  <li>Brute-force</li>
+  <li>Texte chiffré seul</li>
+  <li>Texte clair connu</li>
+  <li>Texte clair choisi</li>
+  <li>Texte chiffré choisi</li>
+  <li>Injection d’erreurs</li>
+  <li>Canaux cachés</li>
+</ul>
+
+<h4 id="chiffrement-asymétrique">Chiffrement asymétrique</h4>
+
+<p>Le chiffrement asymétrique s’appuie sur une clé privée (qui ne doit surtout par être divulgée) et d’une clé publique partagée, utilisée pour la communication.</p>
+
+<figure><img class="docimage" src="images/20181015-introduction-chiffrement-symetrique.png" alt="" /><figcaption>Chiffrement asymétrique</figcaption></figure>
+
+<p>L’intéret est qu’il n’y a pas de risques en soit à communiquer la clé publique utilisée pour chiffrer. Seul le destinataire, qui possède la clé privée, est en mesure de déchiffrer et donc de lire le message. La sécurité est assurée par la complexité calculatoire pour inverser la clé publique.</p>
+
+<p>Le désavantage de ces algorithmes est qu’ils sont plus complexes et donc plus consommateurs en temps de calcul.</p>
+
+<p>Quelques exemples d’algorithmes:</p>
+<ul>
+  <li>RSA</li>
+  <li>Courbes elliptiques (EC)</li>
+</ul>
+
+<h4 id="quelques-questions-à-se-poser">Quelques questions à se poser</h4>
+
+<p>Plusieurs questions sont à se poser. Même si les algorithmes sont sûrs, des erreurs dans la configuration affaiblissent la sécurité.</p>
+
+<ul>
+  <li>Chiffrement symétrique</li>
+  <li>Choix de l’algorithme? ROT13? Vigenère? DES? 3DES? AES?</li>
+  <li>Quelle taille de clé choisir?</li>
+  <li>Chiffrement asymétrique</li>
+  <li>Choix de l’algorithme? RSA? EC?</li>
+  <li>Taille de la clé? 128, 256, 512, 1024, …?</li>
+  <li>Génération des clés? (PRNG)</li>
+  <li>Choix des blocs? ECB? CBC? OFB?</li>
+  <li>Comment stocker les clés en sécurité? Comment les échanger?</li>
+</ul>
+
+<h2 id="integrity">Integrity</h2>
+
+<p>L’intégrité est la “<strong>capacité à empêcher qu’une donnée soit modifiée par une personne non autorisée ou d’une façon non voulue</strong>”.</p>
+
+<p>En plus Non seulement empêcher les modifications mais aussi être capable de revenir dans un état précédent.</p>
+
+<p>Une autre propriété qui en découle est l’<strong>auditabilité</strong> (en : accountability). On doit pouvoir comprendre comment le système a pu arriver dans cet état, qui a fait la modification, quand et pourquoi.</p>
+
+<p>Derrière l’intégrité se cache la capacité d’un système à prendre des décisions. En effet, comment valider un achat si on n’est pas sûr des informations concernant l’état d’un compte en banque par exemple?</p>
+
+<p>Quelques exemples de perte d’intégrité</p>
+<ul>
+  <li>Accès/Introduction dans un système</li>
+  <li>Injection d’erreurs lors d’une transaction bancaire</li>
+</ul>
+
+<h3 id="authentification-et-autorisation">Authentification et autorisation</h3>
+
+<p>Pour assurer l’intégrité, le système doit donc être capable de reconnaitre un utilisateur et doit être aussi capable d’associer les droits à cet utilisateur.</p>
+
+<p>Dans le premier cas, on parle d’authentification et dans le deuxième, d’autorisation.</p>
+<ul>
+  <li>Authentification : confirmer l’identité de l’utilisateur ou de l’entité</li>
+  <li>Autorisation : donner (to grant) les droits d’accès aux ressources d’un système (fichiers, processus, …)</li>
+</ul>
+
+<p>L’authentification d’un utilisateur repose sur un des axes suivants:</p>
+<ul>
+  <li>Quelque chose que l’on sait : mot de passe, question secrète, …</li>
+  <li>Quelque chose que  l’on a : token d’authentification, téléphone, …</li>
+  <li>Quelque chose que l’on est : biométrie</li>
+</ul>
+
+<p>Il est aussi possible de combiner ces différents modes. On parle alors de <strong>Multi-Factor Authentication</strong> (ou MFA).</p>
+
+<p>Différents modèles d’autorisations existent:</p>
+<ul>
+  <li>Mandatory Access Control</li>
+  <li>Discretionary Access Control</li>
+  <li>Role-Based Access Control</li>
+  <li>…</li>
+</ul>
+
+<h3 id="fonction-de-hachage-et-signature">Fonction de hachage et signature</h3>
+
+<p>Dans le cas d’un échange chiffré avec un système asymétrique,
+rien ne garantit que l’émetteur est bien celui qui a envoyé le message.
+Un attaquant pourrait intercepter le message et créer son message chiffré avec la clé publique du destinataire.</p>
+
+<p>Un moyen de s’assurer de l’intégrité de l’échange est de signer le message transmis.</p>
+
+<p>Pour ce faire, deux couples de clés entrent en jeu:</p>
+<ul>
+  <li>celui du destinataire. Clé publique : pk_d, clé privée: sk_d</li>
+  <li>celui de l’émetteur. Clé publique : pk_e, clé privée: sk_e</li>
+</ul>
+
+<p>L’émetteur du message peut chiffrer le message envoyé avec la clé publique pk_d du destinataire. Il peut ensuite chiffrer une version condensée du message avec sa clé privée sk_e.
+ Le destinataire reçoit le message et peut le déchiffrer avec sa clé privée sk_d. Il peut ensuite condenser le message reçu et déchiffrer le condensé reçu avec la clé publique pk_e de l’émetteur. Comme seul l’émetteur a pu chiffrer le condensé émis avec sa clé privée, si les deux condensés correspondent, alors le message a bien été émis par l’émetteur et n’a pas été modifié.</p>
+
+<p>On nomme “<strong>signature</strong>”, le condensé chiffré par l’émetteur.</p>
+
+<figure><img class="docimage" src="images/20181015-introduction-signature.png" alt="" /><figcaption>Signature</figcaption></figure>
+
+<p>Un point important est qu’il faut toujours assurer la confidentialité du message. En effet, le condensé peut être déchiffrer puisqu’il est déchiffrable avec la clé publique de l’émetteur (connu par l’attaquant).
+Il faut donc que le condensé ne fournisse pas d’informations utiles à l’attaquant.</p>
+
+<p>Pour ce faire, les fonctions à sens unique sont utilisées, comme des fonctions de hachage. Le message donné une fonction de hachage donne un <strong>hash</strong>.</p>
+
+<p>Ce sont des fonctions théoriquement non inversibles. L’espace de départ est généralement plus petit que l’espace d’arrivée, ce qui peut entrainer des collisions (d’où un risque potentielle de pouvoir réutiliser un signature pour un message différent).</p>
+
+<p>Une “bonne” fonction de hachage doit avoir les propriétés suivantes:</p>
+<ul>
+  <li>Résistance à la pré-image: Fonction non réversible ⇒ h-1 n’existe pas, pour un h donné, il est difficile de trouver h = H(m)</li>
+  <li>Résistance à la seconde pré-image: pour un m donné, difficile de trouver un m’ tel que H(m) = H(m’)</li>
+  <li>Résistance aux collisions: difficile de trouver m et m’ tel que H(m) = H(m’)</li>
+</ul>
+
+<p>Attaques connues:</p>
+<ul>
+  <li>Brute-force</li>
+  <li>Rainbow table. Il s’agit de tables contenant des hashs pour de nombreux mots de passe. Une manière de rendre inutile ce type de table est d’ajouter un sel au condensé.</li>
+</ul>
+
+<h2 id="availability">Availability</h2>
+
+<p>La dernière propriété, la disponibilité, est la capacité d’avoir accès aux données.</p>
+
+<p>En effet, même si l’information est bien confidentielle et intègre, à quoi sert un système s’il n’est pas possible d’accéder à ces informations?</p>
+
+<p>Quelques exemples d’indisponibilité :</p>
+<ul>
+  <li>DoS : Denial of Service</li>
+  <li>DDoS: Distributed Denial of Service</li>
+</ul>
+
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_formatting.html" class="btn btn-default navbar-btn cursorNorm" role="button">formatting</a>
+        
+        
         
     </div>
 
@@ -492,7 +704,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Oct 14, 2018 <br />
+<span>Page last updated:</span> July 3, 2016<br/> Site last generated: Oct 21, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>

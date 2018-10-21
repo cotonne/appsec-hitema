@@ -43,18 +43,47 @@ Bien que non prévu pour provoquer des dégats, des bogues de conception le rend
 ralentit énormément les machines sur lesquels il est présent.
 
 Ressources:
- * https://fr.wikipedia.org/wiki/Morris_(ver_informatique)
+ * [Morris sur Wikipedia](https://fr.wikipedia.org/wiki/Morris_(ver_informatique))
 
 ### I love you
 
-## Aujourd'hui
+Ce ver, apparu au début de l'année 2000, a fait grands bruits à l'époque. En moins de quatre jours, 3 millions 
+d'ordinateurs furent infectés. Environ 10% des ordinateurs ont été infectés.
+Il est aussi marquant par la couverture médiatique qui a suivi et par le fait qu'il est apparu lors de l'utilisation
+par le grand public d'Internet.
 
-### Les grands acteurs face au piratage
+## Aujourd'hui, face à la menace informatique
+
+Les risques liés à la sécurité sont encore plus présents.
+
+### Individuellement
+
+Au niveau d'un individu, la sécurité est visible à différents niveaux.
+
+ - Protection des données personnelles: elles sont devenues un enjeu majeur. Les dernières élections américaines ont montrées leur importance face aux nombreuses manipulations ciblées de l'information 
+ - Les ransomwares sont de plus en plus présents. Une fois activé, ces programmes chiffrent les documents d'un utilisateur. Ce dernier est alors obligé de payer une rançon s'il souhaite pouvoir
+
+### Les entreprises
 
 [Yahoo et les 3 milliards de comptes piratés](https://www.nytimes.com/2017/10/03/technology/yahoo-hack-3-billion-users.html), 
 [Google+ et une faille](https://thehackernews.com/2018/10/google-plus-shutdown.html), 
 [Facebook et la perte de 29 millions de comptes](https://www.01net.com/actualites/facebook-les-donnees-de-29-millions-de-comptes-ont-ete-derobees-et-les-votres-1543725.html),
-ne sont que quelques exemples que même les plus acteurs ne sont pas forcément à l'abri 
-d'attaques informatiques.
+ne sont que quelques exemples que même les plus acteurs ne sont pas forcément à l'abri d'attaques informatiques.
 
+### Les Etats
 
+Les Etats font aussi face aux menaces liées au piratage. 
+
+En 1995, les USA ont défini l'information et la cybersécurité comme le cinquième terrain d'action pour l'armée en complément des quatres précédents: terre, mer, air et espace.
+
+Il est connu de nombreux pays possèdent des équipes spécialisées dans la guerre de l'information. On pourra citer:
+ - USA et les principales agences comme le FBI, la CIA ou la NSA. Celle-ci est par exemple soupsonné d'avoir développer le virus Stuxnet qui infecta les centrales nucléaires iraniennes. [STUXNET]
+ - La Corée du Nord et le Bureau 121
+ - Syrian Electronic Army
+ - ...
+ 
+La France, par exemple, charge l'ANSSI de "d’accompagner les opérateurs d’importance vitale (OIV) dans la sécurisation de leurs systèmes d’information sensibles." [OIV].
+
+Ressources:
+ * [STUXNET](https://fr.wikipedia.org/wiki/Stuxnet)
+ * [OIV](https://www.ssi.gouv.fr/entreprise/protection-des-oiv/protection-des-oiv-en-france/)

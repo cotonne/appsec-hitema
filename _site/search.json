@@ -25,6 +25,17 @@
 
 
 
+{
+"title": "Objectifs de la sécurité applicative",
+"tags": "formatting",
+"keywords": "notes, tips, cautions, warnings, admonitions",
+"url": "appsec_intro_objectifs",
+"summary": ""
+}
+,
+
+
+
 
 
 {
@@ -178,17 +189,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_archi_technical.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_intro_objectifs.html",
 "summary": ""
 }
 ,

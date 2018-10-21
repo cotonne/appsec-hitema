@@ -37,6 +37,12 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/appsec_intro_objectifs</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -137,12 +143,6 @@
   
   <url>
     <loc>http://localhost:4000/pages/appsec/appsec_archi_technical.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_intro_objectifs.html</loc>
   </url>
   
   
