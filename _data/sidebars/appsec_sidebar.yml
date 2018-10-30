@@ -135,3 +135,10 @@ entries:
     - title: OWASP SAMM
       url: /appsec_sdlc_samm.html
       output: web, pdf
+
+  - title: Ressources
+    output: web, pdf
+    folderitems:
+    - title: Ressources
+      url: /appsec_ressources.html
+      output: web, pdf

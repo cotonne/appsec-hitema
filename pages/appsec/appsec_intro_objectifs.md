@@ -1,7 +1,7 @@
 ---
 title: Objectifs de la sécurité applicative
 tags: [formatting]
-keywords: notes, tips, cautions, warnings, admonitions
+keywords: appsec, objectifs
 last_updated: July 3, 2016
 summary: ""
 sidebar: appsec_sidebar

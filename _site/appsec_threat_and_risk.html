@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | AppSec HiTeMa</title>
+<meta name="keywords" content="formatting,  threat, risk">
+<title>Risques et menaces | AppSec HiTeMa</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,7 +135,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Risques et menaces page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -153,7 +153,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Risques et menaces">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -399,6 +399,22 @@
    </li>
      
       
+  
+  <li>
+      <a href="#">Ressources</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_ressources.html">Ressources</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
       
       <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
@@ -417,13 +433,15 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">Risques et menaces</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary"></div>
    
 
     
@@ -458,10 +476,215 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   
+   <h1 id="menaces">Menaces</h1>
+
+<h2 id="définition">Définition</h2>
+
+<h3 id="vulnérabilité">Vulnérabilité</h3>
+
+<p>Une vulnérabilité est une faiblesse ou un défaut dans un logiciel qui est exploitée par un attaquant pour 
+avoir accès à un actif.
+Cette faiblesse peut être:</p>
+
+<ul>
+  <li>d’un bug: une entrée mal protégée devient le point d’entrée d’une attaque. Il s’agit d’une erreur introduite au moment du développement, par exemple</li>
+  <li>d’une fonctionnalité: même si elle est utile, peut être détournée et utilisée à l’avantage d’un attaque. C’est un problème de conception</li>
+  <li>d’une faille volontairement créée: on parlera alors de <strong>backdoor</strong> (porte dérobée)</li>
+</ul>
+
+<p>Il est important de bien identifier et gérer les vulnérabilités. Il faut prioriser leurs corrections en fonction de leur gravité et de leur impact (mauvaise publicité). De plus, il faut noter que l’on retrouve souvent le même type d’erreur dans un contexte donné. Avec un suivi efficace des vulnérabilités, les failles les plus récurrentes pourront donner lieu à une analyse des causes racines et à un traitement particulier.
+Par exemple, s’il s’agit d’une faille de type “SQL Injection”, une formation sur le bon usage des requêtes préparées (en: Prepared Statements) s’avérera bénéfique.</p>
+
+<h3 id="attaque">Attaque</h3>
+
+<p>Une attaque est l’action d’utiliser une ou plusieures vulnérabilités pour obtenir un actif.</p>
+
+<h3 id="exploit">Exploit</h3>
+
+<p>Un exploit est un logiciel exploitant une vulnérabilité.</p>
+
+<p>Un outil, <a href="https://www.metasploit.com/">Metasploit</a>, tire son nom de ce mot (Meta + exploit).</p>
+
+<h3 id="menaces-1">Menaces</h3>
+
+<p>Une définition de menace (en: <strong>Threat</strong>) : “A <strong>person</strong> or <strong>thing</strong> likely to cause <strong>damage</strong> or danger.” <a href="https://en.oxforddictionaries.com/definition/threat">Oxford Dictionnary</a>. Une menace est donc un attaquant ou un logiciel (comme un ver) qui utilisera une vulnérabilité pour causer du dommage.</p>
+
+<p>Certaines attaques peuvent s’étaler sur plusieures années. Par exemple, les <strong>Advanced Persistent Threat</strong> (APT) sont des attaques furtives, continues et présentant une niveau de sophistications importants orchestrées par des organisations.</p>
+
+<p>Ressources:</p>
+<ul>
+  <li>“Sécurité et espionnage informatique”, Cédric Pernet</li>
+  <li>MISC Magazine a publié de nombreux articles sur le sujet (<a href="https://www.miscmag.com/le-point-sur-les-apt-dans-misc-n79/">MISC n°79</a>, <a href="https://www.miscmag.com/ledito-de-misc-hs-n10-apte-ou-in-apt-face-aux-a-p-t-a-vous-de-voir/">ici</a>)</li>
+</ul>
+
+<h2 id="connais-ton-ennemi-et-connais-toi-toi-même---sun-tzu">“Connais ton ennemi et connais-toi toi-même” - Sun Tzu</h2>
+
+<p>Les typologies d’acteur dans le domaine de la sécurité (en: <strong>Threat Actor Typology</strong>) ont pour but de
+définir qui peut nous attaquer. Derrière chaque adversaire se cache des motivations. Les comprendre nous 
+permet de mieux anticiper leurs actions et de proposer une riposte adaptée.</p>
+
+<p>Chaque acteur a des motivations, mais il a aussi des moyens matériels à sa disposition: notamment tous n’ont
+pas accès au même volume de temps, d’argent et de connaissances.
+La liste suivante est un exemple de typologie:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Acteurs</th>
+      <th>Motivations</th>
+      <th>Temps</th>
+      <th>Argent</th>
+      <th>Connaissances</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Criminels</td>
+      <td>extortions (ransomware), vol (transactions bancaires), fraude, scam, …</td>
+      <td>Peu</td>
+      <td>Peu</td>
+      <td>Moyen</td>
+    </tr>
+    <tr>
+      <td>Hacktivists</td>
+      <td>hack + activists</td>
+      <td>Beaucoup</td>
+      <td>Peu</td>
+      <td>Beaucoup</td>
+    </tr>
+    <tr>
+      <td>Script kiddies</td>
+      <td>Jeu</td>
+      <td>Beaucoup</td>
+      <td>Peu</td>
+      <td>Peu</td>
+    </tr>
+    <tr>
+      <td>Terrorists</td>
+      <td>Actions politiques</td>
+      <td>Beaucoup</td>
+      <td>Moyen</td>
+      <td>Moyen à Beaucoup</td>
+    </tr>
+    <tr>
+      <td>Acteurs institutionnels (état, entreprise)</td>
+      <td>Défenses des intérêts nationaux</td>
+      <td>Beaucoup</td>
+      <td>Beaucoup</td>
+      <td>Beaucoup</td>
+    </tr>
+    <tr>
+      <td>Ancien employé</td>
+      <td>Vengeance</td>
+      <td>Peu</td>
+      <td>Peu</td>
+      <td>Peu</td>
+    </tr>
+    <tr>
+      <td>Chercheurs</td>
+      <td>Recherche</td>
+      <td>Beaucoup</td>
+      <td>Peu</td>
+      <td>Beaucoup</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Une fois une typologie choisie, la question se pose de savoir si chacun de ces acteurs peut m’attaquer.</p>
+
+<p>Supposons j’ai une faiblesse dans une solution de chiffrement (par exemple une clé faible). Un État a les moyens
+de mettre en oeuvre des solutions pour casser la clé via une attaque de type “<a href="https://en.wikipedia.org/wiki/Brute-force_attack">brute-force</a>”.</p>
+
+<p>Si je suis un petite entreprise, je n’ai pas forcément à m’inquiéter d’être pirater par un État comme par exemple 
+(au hasard) la Corée du Nord ou les États-Unis. Par contre, si je suis une grosse entreprise, il s’agit d’une menace
+sérieuse. Cela rentre dans la guerre économique.</p>
+
+<p>Ressources:</p>
+
+<ul>
+  <li><a href="https://www.wodc.nl/binaries/2740_Summary_tcm28-273244.pdf">Exemple de typologie</a></li>
+</ul>
+
+<h3 id="threat-intelligence">Threat intelligence</h3>
+
+<p>La <strong>Threat intelligence</strong> cherche à collecter des informations concernant les menaces sur la sécurité informatique.
+Elle s’intéresse notamment à :</p>
+
+<ul>
+  <li>Tactiques : méthodologies, outils, …</li>
+  <li>Techniques</li>
+  <li>Opérations : analyse des organisations</li>
+  <li>Stratégique : but et plan d’attaques</li>
+  <li>Advanced Persistent Threat</li>
+  <li>Collectes d’informations (HoneyPot, analyse Virus, …)</li>
+</ul>
+
+<h1 id="risques">Risques</h1>
+
+<h2 id="définition-1">Définition</h2>
+
+<p>Le risque est la probabilité d’un dommage sur un actif suite à l’exploitation d’une vulnérabilité par une menace.Pour avoir un risque, il faut une menace et une vulnérabilité. On pourra définir le risque avec:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Risque : facteur x probabilité ⇒ conséquences
+</code></pre></div></div>
+
+<p>On associera alors :</p>
+<ul>
+  <li>facteur : vulnérabilité et menace</li>
+  <li>probabilité : visibilité, complexité, capacité des attaquants</li>
+  <li>conséquences : impact technique ou métier de la réalisation du risque (asset)</li>
+</ul>
+
+<h3 id="threat-analysis">Threat analysis</h3>
+
+<h2 id="gestion-du-risque">Gestion du risque</h2>
+
+<p>Une activité récurrent au cours de la vie d’un projet est la <strong>gestion des risques</strong>. Pendant cette activité,
+les risques sont identifier, “mesurer” puis prioriser. En fonction des critères, on pourra choisir d’agir sur les risques les plus importants. On parlera alors de <strong>pilotage par les risques</strong>.</p>
+
+<p>Plusieurs étapes sont présentes lors de ce travail:</p>
+
+<p># Identifier les actifs
+ # Identifier les menaces
+ # Évaluer les faiblesses sur les actifs
+ # Évaluer les risques
+ # Gérer les risques</p>
+
+<p>L’évaluation se fait souvent de manière qualitative. La probabilité, bien que normalement compris entre 0 et 1, peut être évaluer avec une variable ordinale (par exemple: faible, moyen, élevé, très élevé). De même, la conséquence, souvent financière, peut être associée à une échelle (par exemple: 1 (impact faible - 1 €) à 10 (impact important: fermeture de l’entreprise, mort, …)).</p>
+
+<p>Face à un risque, plusieurs solutions sont possibles:</p>
+<ul>
+  <li><strong>Éviter</strong>: on va éliminer, abandonner ou faire en sorte de ne pas le rencontrer. On va part exemple corriger la vulnérabilité.</li>
+  <li><strong>Réduire</strong>: certaines failles peuvent être compliquées ou chères à corriger. On peut décider d’atténuer le problème. Par exemple, si l’application web présente de nombreuses failles de type XSS, on pourrait imaginer de mettre en oeuvre un <a href="https://fr.wikipedia.org/wiki/Web_application_firewall">WAF</a> (attention, ce n’est pas la panacée!).</li>
+  <li><strong>Partager</strong>: on va alors transférer le risque vers un tiers. Par exemple, de nombreuses entreprises sous-traitent (outsourcing) le développement de leur application à d’autres entreprises. L’entreprise donne donc à l’entreprise sous-traitant de fournir un logiciel “sécurisé”. Un autre solution est de prévoir une assurance.</li>
+  <li><strong>Prendre en charge</strong>: enfin, dernière possibilité: accepter le risque et le budgétiser, c’est-à-dire prévoir de la contingence pour le cas où le risque se produirait.</li>
+</ul>
+
+<p>Dans tous les cas, un équilibre “Coût / Conséquence” est à considérer. En effet, un risque peut problème et sans conséquence mérite-t’il d’être corrigé?</p>
+
+<p>On verra, par la suite, des outils évalués des menaces dans le cadre du <strong>Threat modeling</strong>.</p>
+
+<h2 id="limites">Limites</h2>
+
+<p>Plusieures limites existent concernant la sécurité d’un système. Ainsi, une application est:</p>
+
+<ul>
+  <li>Sécurisé à un moment: de nouvelles failles apparaissent ou certaines failles deviennent plus courantes.</li>
+  <li>Sécurisé à chaque niveau: chaque niveau doit présenté un niveau de sécurité suffisant. Il ne faut pas de maillon faible. Il faut aussi remarquer ici l’asymétrie attaque/défense: l’attaquant peut attaquer où il le souhaite et il suffit d’une faiblesse. La défense doit donc être totale et permanent.</li>
+  <li>Sécurisé globalement: la sécurité doit s’envisager d’un point de vue holistique, en prenant en compte l’ensemble du système. Cependant, les systèmes sont souvent complexes et difficiles à analyser dans la totalité.</li>
+</ul>
+
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_formatting.html" class="btn btn-default navbar-btn cursorNorm" role="button">formatting</a>
+        
+        
         
     </div>
 
@@ -492,7 +715,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Oct 21, 2018 <br />
+<span>Page last updated:</span> October 30, 2018<br/> Site last generated: Oct 30, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>

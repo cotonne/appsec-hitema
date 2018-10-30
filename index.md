@@ -11,6 +11,14 @@ summary: Ce site reprend les principales informations du cours "Sécurité Appli
 
 ## Instructions pour le prochain cours
 
+### Vendredi 16 novembre
+
+Nous utiliserons les outils suivants lors de cette séance:
+
+ - Google Gruyère. [Suivre les instructions pour installer en local](https://google-gruyere.appspot.com/part1) (Utile en cas de coupure réseau
+ - [bodgeit](https://github.com/psiinon/bodgeit)
+ - [OWASP Juice Shop](https://www.owasp.org/index.php/OWASP_Juice_Shop_Project)
+
 ### Mardi 16 octobre
 
 Installer les composants suivants:
@@ -21,8 +29,6 @@ Installer les composants suivants:
 ### Lundi 15 octobre
 
 Aucun
-
-Follow these instructions to build the theme.
 
 ### Logiciels utilisés pendant le cours
 
@@ -36,6 +42,11 @@ Les étudiants sont invités à les lire leur code source pour bien comprendre l
  - InsecureBankv2
  - SQLMap
  - Kali
+ - frida
+ - jd-gui
+ - apktool
+ - IDA
+ - Intellij
 
 ## Contact
 
@@ -56,7 +67,7 @@ Un projet est prévu le 4 mars 2019. Il donnera lieu à un rapport présentant:
  - la méthodologie suivie 
  - les solutions envisagées
 
-Le rapport utilisera au mieux les connnaissances acquises lors du cours "Sécurité Applicative".
+Le rapport utilisera au mieux les connaissances acquises lors du cours "Sécurité Applicative".
 
 Le rapport pourra être fait à un ou plusieurs.
 

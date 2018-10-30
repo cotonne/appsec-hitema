@@ -28,8 +28,41 @@
 {
 "title": "Objectifs de la sécurité applicative",
 "tags": "formatting",
+"keywords": "appsec, objectifs",
+"url": "appsec_intro_objectifs",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Objectifs de la sécurité applicative",
+"tags": "formatting",
 "keywords": "notes, tips, cautions, warnings, admonitions",
 "url": "appsec_intro_objectifs",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Risques et menaces",
+"tags": "formatting",
+"keywords": "threat, risk",
+"url": "appsec_threat_and_risk",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Risques et menaces",
+"tags": "formatting",
+"keywords": "threat, risk",
+"url": "appsec_threat_and_risk",
 "summary": ""
 }
 ,
@@ -299,17 +332,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_support.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_threat_and_risk.html",
 "summary": ""
 }
 ,
