@@ -4,6 +4,39 @@
 
 
 {
+"title": "Principes de conception",
+"tags": "architecture",
+"keywords": "architecture, principes",
+"url": "appsec_archi_principles",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Quelques rappels",
+"tags": "architecture",
+"keywords": "architecture, rappels",
+"url": "appsec_archi_rappels",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Architecture Technique",
+"tags": "architecture",
+"keywords": "architecture, technique",
+"url": "appsec_archi_technical",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Definitions",
 "tags": "formatting",
 "keywords": "notes, tips, cautions, warnings, admonitions",
@@ -42,6 +75,17 @@
 "keywords": "notes, tips, cautions, warnings, admonitions",
 "url": "appsec_intro_objectifs",
 "summary": ""
+}
+,
+
+
+
+{
+"title": "Ressources",
+"tags": "architecture",
+"keywords": "architecture, rappels",
+"url": "appsec_ressources",
+"summary": "Des ressources utiles"
 }
 ,
 
@@ -177,28 +221,6 @@
 "title": "",
 "tags": "",
 "keywords": "",
-"url": "pagesappsecappsec_archi_principles.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_archi_rappels.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
 "url": "pagesappsecappsec_archi_security.html",
 "summary": ""
 }
@@ -211,17 +233,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_archi_software.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_archi_technical.html",
 "summary": ""
 }
 ,

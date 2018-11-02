@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | AppSec HiTeMa</title>
+<meta name="keywords" content="architecture,  architecture, principes">
+<title>Principes de conception | AppSec HiTeMa</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,7 +135,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Principes de conception page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -153,7 +153,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Principes de conception">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -213,13 +213,6 @@
           
           
           <li><a href="appsec_threat_and_risk.html">Menaces et gestion du risque</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a href="appsec_support.html">Support</a></li>
           
           
           
@@ -411,6 +404,13 @@
           
           
           
+          
+          
+          <li><a href="appsec_support.html">Supports de cours</a></li>
+          
+          
+          
+          
       </ul>
    </li>
      
@@ -433,13 +433,15 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">Principes de conception</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary"></div>
    
 
     
@@ -474,10 +476,90 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   
+   <p>Ce chapitre introduit des principes sur lesquels nous pouvons nous appuyer pour concevoir et construire une application qui soit sécurisée par “design”. Ce sont des principes de haut-niveau, indépendant des choix techniques ou logicielles. Ils sont peu nombreux et simple à comprendre.</p>
+
+<p>La conception doit être faite en gardant à l’esprit que nous avons un adversaire dont nous voulons nous protéger (<strong>Adversary Principle</strong>). Nous reverrons plus tard les activités de modélisation des menaces (<strong>Threat Modeling</strong>) qui nous aident dans ce travail. En effet, nous ne chercherons pas à adresser toutes les possibilités, mais plutôt celles qui sont réalistes ou très dangereuses (en fonction de notre contexte de travail).</p>
+
+<p>Ressources:</p>
+<ul>
+  <li>“Secure Coding, Principles &amp; Practices”, chapitre 2, Graff &amp; van Wyk</li>
+  <li>“Code Complete”, Mc Connell</li>
+</ul>
+
+<h1 id="saltzer-and-schroeders-design-principles-1975">Saltzer and Schroeder’s design principles (1975)</h1>
+
+<p>Dans leur article de 1975, Saltzer et Schroeder ont proposé une liste de dix principes qui sont importants pour concevoir un système sécurisé. Il faut noter que ces principes sont utilisables à différents niveaux: pour un urbaniste (ou architecte du SI), un architecte, un développeur ou un exploitant.</p>
+
+<p>Voici la liste des principes:</p>
+
+<ul>
+  <li><strong>Economy of mechanism</strong> : Un conception simple est plus facile à tester et à valider. Moins il y en a, mieux c’est. Mais attention, simple ne veut par dire simpliste (le minimum est fait) ni petit. Simple s’oppose à compliqué  et inutile mais pas forcément à complexe (le domaine fait que c’est complexe, par exemple les Mathématiques). On pensera alors à l’<strong>over-engineering</strong>.</li>
+  <li><strong>Fail-safe defaults</strong> : par défaut, en cas d’erreur, le système ne doit être dans un état moins protégé. Par défaut, aucun accès n’est autorisé puis, on ouvre progressivement les accès en fonction des droits.</li>
+  <li><strong>Complete mediation</strong> : pour chaque opération, l’authenticité, l’intégrité et les droits doivent être vérifiés. Les droits d’accès doivent être vérifiés.</li>
+  <li><strong>Open design</strong> : un système ne doit pas reposé uniquement sur l’obfuscation (le fait de vouloir perturber la compréhension de notre système par un adversaire). Notre conception doit pouvoir être revue par des pairs pour évaluer et détecter les problèmes. On retrouve ici un des principes de Kerchoffs. Il faut se mettre dans la situation où un ennemi connait le système.</li>
+  <li><strong>Separation of privilege</strong> : il faut empêcher que les actions dépendent des choix d’un seul élément.</li>
+  <li><strong>Least privilege</strong> : il faut toujours effectuer une action avec le moins de droits possibles. Si des droits supplémentaires sont nécessaires, ils doivent être abandonnées une fois l’action terminée. Une façon de voir est: “est-ce qu’un admin devrait avoir les droits de se connecter à une application?”</li>
+  <li><strong>Least common mechanism</strong> : il faut faire attention avec tout ce qui est partagé. Les utilisateurs ne devraient pas partager les mêmes outils, sauf si c’est indispensable. Par exemple, doit-on utiliser le même câble pour le réseau, même PC, … (accès à des fichiers partagés, …)</li>
+  <li><strong>Psychological acceptability</strong> : si une application est trop compliqué, les utilisateurs vont soit s’en lasser, soit trouver un contournement (création d’un <strong>shadow IT</strong>, …). De plus, le système doit aider l’utilisateur et l’empêcher de commettre des erreurs.</li>
+  <li><strong>Work factor</strong> : l’effort à fournir par l’attaquant pour rentrer dans le système doit être . Gros mots de passe, … Voici un extrait de “The Security Development Lifecycle” sur le sujet:
+    <blockquote>
+      <p>The cost-benefit ratio for a criminal is defined by Clark and Davis (Clark and Davis 1995) as
+Mb + Pb &gt; Ocp + Ocm * Pa * Pc
+where</p>
+      <ul>
+        <li>Mb is the monetary benefit for the attacker.</li>
+        <li>Pb is the psychological benefit for the attacker.</li>
+        <li>Ocp is the cost of committing the crime.</li>
+        <li>Ocm is the monetary costs of conviction for the attacker (future lost opportunities and legal costs).</li>
+        <li>Pa is the probability of being apprehended and arrested.</li>
+        <li>Pc is the probability of conviction for the attacker.
+Si <em>Ocp</em> ou <em>Ocm</em> sont importants, l’attaquant peut ne pas essayer d’attaquer.</li>
+      </ul>
+    </blockquote>
+  </li>
+  <li><strong>Compromise recording</strong> : Le système devrait conserver une trace des différentes attaques, même si elles n’ont pas été bloquées. En cas d’analyse post-mortem (<strong>forensic</strong>), ces logs seront d’une aide précieuse. Ils sont aussi un point sensible qu’un attaquant cherchera à compromettre pour ne pas se faire détecter ou retrouver.</li>
+</ul>
+
+<p>Ressources:</p>
+
+<ul>
+  <li>“<a href="http://web.mit.edu/Saltzer/www/publications/protection/">The Protection of Information in Computer Systems</a>”, JEROME H. SALTZER &amp; MICHAEL D. SCHROEDER</li>
+</ul>
+
+<h1 id="saltzer-and-kaashoek-design-principles-2009">Saltzer and Kaashoek design principles (2009)</h1>
+
+<p>Dans leur livre “Principles of Computer System Design”, Saltzer et Kaashoek s’intéressent aux principes de conception de système d’un point de vue plus général. On pourra retenir les règles suivantes:</p>
+
+<ul>
+  <li><strong>Minimize secrets</strong> : Parce qu’ils ne vont pas rester secret bien longtemps. Il doit y en avoir peut et ils doivent être facilement changeable (rotation of secrets).</li>
+  <li><strong>Least astonishment</strong> : ne réinventez pas la roue. Les logiciels sont utilisés par des personnes. Ils sont parti prenant lors de la conception de l’outil. La conception, le développement, l’utilisation du logiciel, … doivent respecter l’état de l’art dans leur domaine.</li>
+  <li><strong>Design for iteration</strong> : Vous n’arrivez pas à faire bien du premier coup. Le système doit être penser pour pouvoir être facilement évoluable. On est dans l’amélioration en continu du logiciel en tant que principe de conception. Le lecteur intéressé pourra voir des concepts comme <strong>evolutionary architectures</strong> ou <strong>agile architecture</strong>.</li>
+</ul>
+
+<p>Ressources:</p>
+<ul>
+  <li>“Principles of Computer System Design”, Saltzer et Kaashoek, 2009</li>
+  <li><a href="https://ocw.mit.edu/resources/res-6-004-principles-of-computer-system-design-an-introduction-spring-2009/online-textbook/principles_open_5_0.pdf">Design principles, extrait du livre précédent</a></li>
+</ul>
+
+<h1 id="quelques-autres-principes">Quelques autres principes</h1>
+
+<ul>
+  <li><strong>Defense in depth</strong> : il faut généralement construire son système en incluant plusieurs couches de défense. Si une couche échoue, une autre prend le relais.</li>
+  <li><strong>Fail fast</strong> : en cas d’erreur, il faut arrêter l’exécution le plus tôt possible et ne pas la laisser se propager, au risque d’impacter un autre système.</li>
+  <li><strong>Deny by default</strong>: comme évoquer précédemment, par défaut, tout est fermé</li>
+  <li><strong>Plan on failure</strong>: lors de la conception, il est important de se demander: “que va-t’il se passer en cas d’échec?” ou “que se passera-t’il si je ne reçois pas ce que j’attends?”</li>
+  <li><strong>Isolation</strong> : c’est l’idée de confinement. On va exécuter du code non sûr dans un système isolé (<strong>sandbox</strong>). On va s’assurer que du code non sûr ne peut pas abîmer le reste du système (utilisateurs, processus, vm, machine, chroot, …). L’attaquant va alors développer des techniques d’évasion ou de détection de ce genre d’environnement.</li>
+</ul>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
         
     </div>
 
@@ -508,7 +590,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Oct 30, 2018 <br />
+<span>Page last updated:</span> November 2, 2018<br/> Site last generated: Nov 2, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>

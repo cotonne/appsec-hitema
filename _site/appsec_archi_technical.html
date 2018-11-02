@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | AppSec HiTeMa</title>
+<meta name="keywords" content="architecture,  architecture, technique">
+<title>Architecture Technique | AppSec HiTeMa</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,7 +135,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Architecture Technique page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -153,7 +153,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Architecture Technique">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -213,13 +213,6 @@
           
           
           <li><a href="appsec_threat_and_risk.html">Menaces et gestion du risque</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a href="appsec_support.html">Support</a></li>
           
           
           
@@ -411,6 +404,13 @@
           
           
           
+          
+          
+          <li><a href="appsec_support.html">Supports de cours</a></li>
+          
+          
+          
+          
       </ul>
    </li>
      
@@ -433,13 +433,15 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">Architecture Technique</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary"></div>
    
 
     
@@ -474,10 +476,73 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   
+   <h1 id="définition">Définition</h1>
+
+<p>L’architecture technique décrit les composants matériel supportant l’application. Par exemple, l’architecte technique décrira:</p>
+<ul>
+  <li>Machines (physique ou virtuelle)</li>
+  <li>Bases de données (SQL, NoSQL, …)</li>
+  <li>Flux</li>
+  <li>Produits Applicatifs (OS, Serveurs, Frameworks, …)</li>
+  <li>Réseaux &amp; topologie</li>
+  <li>Disques (SAN, NAS, …)</li>
+  <li>Services (API)</li>
+  <li>…</li>
+</ul>
+
+<p>Cette description est généralement conservée dans un document d’architecture technique. Ce document est alors utilisé par les équipes d’exploitation pour commander (<strong>provisionner</strong>) les machines, installer les produits applicatifs, ouvrir les flux réseaux, construire les sous-réseaux, …</p>
+
+<figure><img class="docimage" src="images/20181015-architecture-technique-layers.png" alt="" /><figcaption>Composants techniques pour la sécurité par couche OSI</figcaption></figure>
+
+<h1 id="exemples-darchitecture">Exemples d’architecture</h1>
+
+<p>L’ANSSI propose un <a href="https://www.ssi.gouv.fr/uploads/IMG/pdf/2011_12_08_-_Guide_3248_ANSSI_ACE_-_Definition_d_une_architecture_de_passerelle_d_interconnexion_securisee.pdf">GUIDE DE DEFINITION D’UNE ARCHITECTURE DE PASSERELLE D’INTERCONNEXION SECURISEE</a>. Nous reprenons deux exemples d’architecture pour illustrer notre propos.</p>
+
+<h2 id="architecture-accès-via-pare-feu">Architecture “Accès via pare-feu”</h2>
+
+<figure><img class="docimage" src="images/20181015-architecture-simple-parefeu.png" alt="" /><figcaption>Architecture avec un pare-feu</figcaption></figure>
+
+<h2 id="architecture-basée-sur-deux-pare-feux">Architecture basée sur deux pare-feux</h2>
+
+<figure><img class="docimage" src="images/20181015-architecture-double-parefeux.png" alt="" /><figcaption>Architecture avec deux pare-feux</figcaption></figure>
+
+<p>Plusieurs éléments sécurisent notre système:</p>
+<ul>
+  <li>Firewalls de différents constructeurs: cela réduit l’impact en cas de découverte d’une vulnérabilité. L’inconvénient: double compétence sur les produits. C’est à prendre en compte lors de la définition de l’architecture. Pour configurer sans erreur un outil, il faut un bon niveau d’expertise, qui est souvent dur à avoir. Donc, il faut maintenir deux équipes, avec leur propre expertise. On retrouve ici encore notre équilibre coût/risque.</li>
+  <li>Proxy: filtre les accès de l’intérieur vers l’extérieur. Cela peut bloquer des accès non voulus.</li>
+  <li>Reverse proxy: filtre de l’extérieur vers l’intérieur. On concentre généralement tous les flux en un point pour pouvoir les filtrer. Cela masque aussi les ressources internes.</li>
+  <li>Terminaison SSL : permet l’inspection des données</li>
+  <li>Répartition de charge: peut être assuré par un serveur dédié comme bluecoat</li>
+  <li>VPN</li>
+  <li>WAF: Web Application Firewall. Firewall de niveau applicatif, c’est à dire au-dessus du niveau 4 de l’OSI.</li>
+  <li>Base de données</li>
+  <li>Chiffrement du disque</li>
+  <li>Chiffrement des mots de passe en base</li>
+</ul>
+
+<h2 id="applications-des-principes">Applications des principes</h2>
+
+<p>Nous allons maintenant revoir ces architectures par rapport aux principes vus précédemment.</p>
+
+<h3 id="architecture-basée-sur-deux-pare-feux-1">Architecture basée sur deux pare-feux</h3>
+
+<ul>
+  <li>Defense in Depth : deux firewalls séparent les réseaux et se renforcent. Des systèmes à jour et renforcés (<strong>Hardened systems</strong>) peuvent être utilisées pour les machines de l’application (AppArmor, SELinux, services désactivés, …)</li>
+  <li>Isolation &amp; segregation of duties : plusieurs réseaux &amp; VLAN par fonction (opération, exploitation, sauvegarde, supervision, …)</li>
+  <li>Least privilege : les flux réseaux sont limités par les firewalls.</li>
+  <li>Psychological acceptability : quasi-transparent</li>
+  <li>Compromise recording: supervision</li>
+  <li>Least common mechanism: séparation des réseaux</li>
+</ul>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
         
     </div>
 
@@ -508,7 +573,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Oct 30, 2018 <br />
+<span>Page last updated:</span> November 2, 2018<br/> Site last generated: Nov 2, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>

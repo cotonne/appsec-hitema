@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | AppSec HiTeMa</title>
+<meta name="keywords" content="architecture,  architecture, rappels">
+<title>Quelques rappels | AppSec HiTeMa</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,7 +135,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Quelques rappels page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -153,7 +153,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Quelques rappels">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -213,13 +213,6 @@
           
           
           <li><a href="appsec_threat_and_risk.html">Menaces et gestion du risque</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a href="appsec_support.html">Support</a></li>
           
           
           
@@ -411,6 +404,13 @@
           
           
           
+          
+          
+          <li><a href="appsec_support.html">Supports de cours</a></li>
+          
+          
+          
+          
       </ul>
    </li>
      
@@ -433,13 +433,15 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">Quelques rappels</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary"></div>
    
 
     
@@ -474,10 +476,72 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   
+   <h1 id="le-modèle-osi">Le modèle OSI</h1>
+
+<p>Le modèle OSI est une architecture en sept couches. Chaque couche communique avec la couche du dessus et celle du dessous. Il s’agit d’un modèle: les coupures ne sont pas si claires, mais aident à comprendre certains concepts.</p>
+
+<p>Ce modèle permet de simplifier et réfléchir sur les échanges entre applications.</p>
+
+<p>Dans ce cours, nous nous intéresserons aux trois dernières couches (Application/Présentation/Session).</p>
+
+<figure><img class="docimage" src="images/20181015-architecture-modele-osi.png" alt="" /><figcaption>Modèle OSI (Source: https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI)</figcaption></figure>
+
+<p>Exemples:</p>
+<ul>
+  <li>Couche physique : cable, bluetooth, …. ⇒ Interception</li>
+  <li>Couche liaison (data layer) : ethernet, MAC address ⇒ ARP spoofing</li>
+  <li>Couche réseau : IPv4, IPv6, … =&gt; syn flood, …</li>
+  <li>Couche transports: TCP, UDP, … =&gt; usurpation, …</li>
+  <li>Couche Session : HTTP, …</li>
+  <li>Couche Présentation : ASN.1, XML, …</li>
+  <li>Couche Application: DNS, FTP, …</li>
+</ul>
+
+<h1 id="limportance-de-la-conception">L’importance de la conception</h1>
+
+<p>La sécurité se retrouve à tous les niveaux d’une application. Il ne faut pas attendre le dernier moment pour se poser la question de comment inclure de la sécurité dans un application.</p>
+
+<p>Nous le verrons dans la partie sur les cycles de vie sécurisées: la sécurité se retrouve à toutes les étapes.
+La conception, une activité qui arrive en amont des développements, est une activité sensible. Si une faille est introduite à ce moment, il est souvent coûteux et long de pouvoir corriger.</p>
+
+<p>Dans ce chapitre, nous nous intéresserons à plusieurs éléments :</p>
+<ul>
+  <li>L’architecture technique, logicielle et fonctionnelle</li>
+  <li>Les outils d’analyse des menaces : DFD, Threat Trees</li>
+</ul>
+
+<p>Le graphique suivant donne une idée du coût pour fixer une faille (généralement admis) en fonction de l’étape de découverte dans un projet.</p>
+
+<figure><img class="docimage" src="images/20181015-architecture-cout-anomalie.png" alt="" /><figcaption>Coût d'une anomalie</figcaption></figure>
+
+<p>Comme on peut voir, plus elle est découverte tard, plus le coût est important.</p>
+
+<h1 id="définitions">Définitions</h1>
+
+<p>L’étymologie d’architecture est la contraction de <strong>principe</strong> et <strong>couvrir/clore</strong>. On peut voir l’architecture comme l’art de définir des règles de construction d’un ouvrage. Dans le cas de l’informatique, notre ouvrage est un logiciel.</p>
+
+<p>Martin Fowler <a href="https://youtu.be/DngAZyWMGR0">donne la définition suivante de l’architecture</a> :</p>
+<blockquote>
+  <p>Software architecture is those decisions which are both important and hard to change.</p>
+</blockquote>
+
+<p>Dans “Secure Coding, principles &amp; practices”, Graff et van Wyk parlent d’architecture sécurisée:</p>
+<blockquote>
+  <p>We think of security architecture as a body of high-level design principles and decisions that allow a programmer to say “Yes” with confidence and “No” with certainty.</p>
+</blockquote>
+
+<p>Par la suite, nous verrons un ensemble de principes pour répondre à cette définition.</p>
+
+<p>Nous nous intéresserons à l’<strong>Architecture Technique</strong>, l’<strong>Architecture Logicielle</strong> et l’<strong>Architecture Fonctionnelle</strong>.</p>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
         
     </div>
 
@@ -508,7 +572,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Oct 30, 2018 <br />
+<span>Page last updated:</span> November 2, 2018<br/> Site last generated: Nov 2, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>

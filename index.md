@@ -9,7 +9,7 @@ summary: Ce site reprend les principales informations du cours "Sécurité Appli
 
 {% include note.html content="A l'attention des étudiants HiTeMa : Merci de consulter ce site avant le cours pour avoir les différentes instructions" %}
 
-## Instructions pour le prochain cours
+## Instructions pour les prochains cours
 
 ### Vendredi 16 novembre
 
@@ -23,8 +23,8 @@ Nous utiliserons les outils suivants lors de cette séance:
 
 Installer les composants suivants:
 
- - OWASP Zap : 
- - WebGoat 7 : 
+ - OWASP Zap
+ - WebGoat 7
 
 ### Lundi 15 octobre
 
@@ -64,7 +64,7 @@ le cours.
 Un projet est prévu le 4 mars 2019. Il donnera lieu à un rapport présentant:
 
  - le problème
- - la méthodologie suivie 
+ - la méthodologie suivie
  - les solutions envisagées
 
 Le rapport utilisera au mieux les connaissances acquises lors du cours "Sécurité Applicative".

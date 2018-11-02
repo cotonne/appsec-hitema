@@ -40,10 +40,6 @@ entries:
       url: /appsec_threat_and_risk.html
       output: web, pdf
 
-    - title: Support
-      url: /appsec_support.html
-      output: web, pdf
-
   - title: Architecture
     output: web, pdf
     folderitems:
@@ -142,3 +138,9 @@ entries:
     - title: Ressources
       url: /appsec_ressources.html
       output: web, pdf
+
+    - title: Supports de cours
+      url: /appsec_support.html
+      output: web, pdf
+
+ 
