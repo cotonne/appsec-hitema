@@ -26,6 +26,17 @@
 
 
 {
+"title": "Quelques rappels",
+"tags": "architecture",
+"keywords": "architecture, rappels",
+"url": "appsec_archi_rappels",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Architecture Technique",
 "tags": "architecture",
 "keywords": "architecture, technique",
@@ -86,6 +97,17 @@
 "keywords": "architecture, rappels",
 "url": "appsec_ressources",
 "summary": "Des ressources utiles"
+}
+,
+
+
+
+{
+"title": "Supports de cours",
+"tags": "formatting",
+"keywords": "support, cours",
+"url": "appsec_support",
+"summary": "Support de cours"
 }
 ,
 
@@ -232,17 +254,6 @@
 "title": "",
 "tags": "",
 "keywords": "",
-"url": "pagesappsecappsec_archi_software.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
 "url": "pagesappsecappsec_mobile_best_practices.html",
 "summary": ""
 }
@@ -332,17 +343,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_secure_quality.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_support.html",
 "summary": ""
 }
 ,

@@ -38,6 +38,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/appsec_archi_rappels</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/appsec_archi_technical</loc>
   </url>
   
@@ -69,6 +75,12 @@
   
   <url>
     <loc>http://localhost:4000/appsec_ressources</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_support</loc>
   </url>
   
   
@@ -166,12 +178,6 @@
   
   
   <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_archi_software.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:4000/pages/appsec/appsec_mobile_best_practices.html</loc>
   </url>
   
@@ -221,12 +227,6 @@
   
   <url>
     <loc>http://localhost:4000/pages/appsec/appsec_secure_quality.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_support.html</loc>
   </url>
   
   

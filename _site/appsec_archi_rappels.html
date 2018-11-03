@@ -472,67 +472,57 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/github.com/cotonne/appsec-hitemapages/appsec/appsec_archi_rappels.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/github.com/cotonne/appsec-hitemapages/appsec/appsec_archi_software.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-   <h1 id="le-modèle-osi">Le modèle OSI</h1>
+   <h1 id="définition">Définition</h1>
 
-<p>Le modèle OSI est une architecture en sept couches. Chaque couche communique avec la couche du dessus et celle du dessous. Il s’agit d’un modèle: les coupures ne sont pas si claires, mais aident à comprendre certains concepts.</p>
+<p>L’architecture logicielle décrit les composants logiciels constituant l’application. Il répond aux questions sur la manière de réaliser les exigences fonctionnelles et non-fonctionnelles.</p>
 
-<p>Ce modèle permet de simplifier et réfléchir sur les échanges entre applications.</p>
+<h1 id="modèles-darchitecture-logicielle">Modèles d’architecture logicielle</h1>
 
-<p>Dans ce cours, nous nous intéresserons aux trois dernières couches (Application/Présentation/Session).</p>
+<h2 id="architecture-n-tiers">Architecture n-tiers</h2>
 
-<figure><img class="docimage" src="images/20181015-architecture-modele-osi.png" alt="" /><figcaption>Modèle OSI (Source: https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI)</figcaption></figure>
-
-<p>Exemples:</p>
+<p>Architecture 3-tiers:</p>
 <ul>
-  <li>Couche physique : cable, bluetooth, …. ⇒ Interception</li>
-  <li>Couche liaison (data layer) : ethernet, MAC address ⇒ ARP spoofing</li>
-  <li>Couche réseau : IPv4, IPv6, … =&gt; syn flood, …</li>
-  <li>Couche transports: TCP, UDP, … =&gt; usurpation, …</li>
-  <li>Couche Session : HTTP, …</li>
-  <li>Couche Présentation : ASN.1, XML, …</li>
-  <li>Couche Application: DNS, FTP, …</li>
+  <li>Couche de présentation: interface utilisateur affichant les données de manière accessible à ce dernier</li>
+  <li>Couche de traitement: logique métier, fonction de l’architecture</li>
+  <li>Couche d’accès aux données: l’endroit où les données sont stockées</li>
 </ul>
 
-<h1 id="limportance-de-la-conception">L’importance de la conception</h1>
+<h1 id="problèmes-darchitecture-logicielle">Problèmes d’architecture logicielle</h1>
 
-<p>La sécurité se retrouve à tous les niveaux d’une application. Il ne faut pas attendre le dernier moment pour se poser la question de comment inclure de la sécurité dans un application.</p>
-
-<p>Nous le verrons dans la partie sur les cycles de vie sécurisées: la sécurité se retrouve à toutes les étapes.
-La conception, une activité qui arrive en amont des développements, est une activité sensible. Si une faille est introduite à ce moment, il est souvent coûteux et long de pouvoir corriger.</p>
-
-<p>Dans ce chapitre, nous nous intéresserons à plusieurs éléments :</p>
+<p>Application monolithique</p>
 <ul>
-  <li>L’architecture technique, logicielle et fonctionnelle</li>
-  <li>Les outils d’analyse des menaces : DFD, Threat Trees</li>
+  <li>Complexité à comprendre le comportement</li>
+  <li>Analyse statique compliquée</li>
+  <li>Correction compliquée</li>
+  <li>Propagation de la menace</li>
 </ul>
 
-<p>Le graphique suivant donne une idée du coût pour fixer une faille (généralement admis) en fonction de l’étape de découverte dans un projet.</p>
+<p>Compartimentation</p>
+<ul>
+  <li>Plus facile à comprendre</li>
+  <li>Complique la vie de l’attaquant</li>
+  <li>Défense en profondeur: si un échoue, un autre prendra le relais</li>
+</ul>
 
-<figure><img class="docimage" src="images/20181015-architecture-cout-anomalie.png" alt="" /><figcaption>Coût d'une anomalie</figcaption></figure>
+<h1 id="secure-design-patterns">Secure Design Patterns</h1>
 
-<p>Comme on peut voir, plus elle est découverte tard, plus le coût est important.</p>
+<p>Modèles existants pour résoudre des problèmes connus
+Niveau</p>
+<ul>
+  <li>Architecture: haut niveau de responsabilités entre les composants</li>
+  <li>Conception: décrit les interactions entre les composant
+Implémentation: bas-niveau/secure coding</li>
+</ul>
 
-<h1 id="définitions">Définitions</h1>
-
-<p>L’étymologie d’architecture est la contraction de <strong>principe</strong> et <strong>couvrir/clore</strong>. On peut voir l’architecture comme l’art de définir des règles de construction d’un ouvrage. Dans le cas de l’informatique, notre ouvrage est un logiciel.</p>
-
-<p>Martin Fowler <a href="https://youtu.be/DngAZyWMGR0">donne la définition suivante de l’architecture</a> :</p>
-<blockquote>
-  <p>Software architecture is those decisions which are both important and hard to change.</p>
-</blockquote>
-
-<p>Dans “Secure Coding, principles &amp; practices”, Graff et van Wyk parlent d’architecture sécurisée:</p>
-<blockquote>
-  <p>We think of security architecture as a body of high-level design principles and decisions that allow a programmer to say “Yes” with confidence and “No” with certainty.</p>
-</blockquote>
-
-<p>Par la suite, nous verrons un ensemble de principes pour répondre à cette définition.</p>
-
-<p>Nous nous intéresserons à l’<strong>Architecture Technique</strong>, l’<strong>Architecture Logicielle</strong> et l’<strong>Architecture Fonctionnelle</strong>.</p>
+<p>Ressources:</p>
+<ul>
+  <li><a href="https://resources.sei.cmu.edu/asset_files/TechnicalReport/2009_005_001_15110.pdf">Secure Design Patterns</a></li>
+  <li></li>
+</ul>
 
 
     <div class="tags">
@@ -572,7 +562,7 @@ La conception, une activité qui arrive en amont des développements, est une ac
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
-<span>Page last updated:</span> November 2, 2018<br/> Site last generated: Nov 2, 2018 <br />
+<span>Page last updated:</span> November 2, 2018<br/> Site last generated: Nov 3, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>
