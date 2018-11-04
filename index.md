@@ -13,7 +13,7 @@ summary: Ce site reprend les principales informations du cours "Sécurité Appli
 
 ### Vendredi 7 décembre
 
- - Télécharger [InsecureBankV2](https://github.com/dineshshetty/Android-InsecureBankv2/raw/master/InsecureBankv2.apk)
+ - Télécharger [InsecureBankV2](https://github.com/dineshshetty/Android-InsecureBankv2/archive/master.zip)
  - Télécharger et installer le [sdkmanager](https://developer.android.com/studio/), paragraphe "**Command line tools only**". Il n'est pas nécessaire de télécharger Android Studio.
  - Installer les composants suivants:
 
