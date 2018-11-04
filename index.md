@@ -13,7 +13,10 @@ summary: Ce site reprend les principales informations du cours "Sécurité Appli
 
 ### Vendredi 7 décembre
 
+Il est conseillé d'utiliser un environnement linux (Debian-based de préférence) pour cette session (facilitera énormément les installations). Une VM peut être utilisée (type VirtualBox par exemple).
+ - Installer python 2 
  - Télécharger [InsecureBankV2](https://github.com/dineshshetty/Android-InsecureBankv2/archive/master.zip)
+ - Décompresser le dossier, suivre les instructions d'AndroLabServer
  - Télécharger et installer le [sdkmanager](https://developer.android.com/studio/), paragraphe "**Command line tools only**". Il n'est pas nécessaire de télécharger Android Studio.
  - Installer les composants suivants:
 
