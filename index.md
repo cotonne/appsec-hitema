@@ -24,6 +24,8 @@ $ bin/sdkmanager "platforms;android-27" # fourni les images
 $ bin/sdkmanager "system-images;android-27;default;x86_64"# emulator
 $ bin/sdkmanager "system-images;android-27;google_apis;x86" # emulator
 $ bin/avdmanager create avd --device "Nexus 6" --package "system-images;android-27;default;x86_64" --name "testx"
+$ cd ../emulator
+$ ./emulator @testx
 $ cd ../platform-tools
 $ ./adb install InsecureBankv2.apk
 ```
