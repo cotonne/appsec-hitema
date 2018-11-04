@@ -48,8 +48,14 @@ On s'intéressera sur la deuxième propriété : "**Il faut qu’il n’exige pa
 Cette propriété est importante car elle indique que la sécurité du système ne doit pas reposer uniquement sur le fait que le fonctionnement de celui-ci n'est connu que de nous seul.
 Un exemple: Enigma. Une fois la machine récupérée, l'algorithme a été cassée, ce qui donna un avantage aux Alliées lors de la Seconde Guerre Mondiale.
 De plus, le fait que la sécurité du système repose uniquement sur le secret utilisé permet de faciliter son changement en cas de découverte.
-Dans un système moderne, on peut imaginer la compléxité de changer un algorithme de chiffrement si la sécurité n'est plus assurée parce qu'il a été découverte.
-Il faut toujours supposer que l'attaquant connait le système.
+Dans un système moderne, on peut imaginer la complexité de changer un algorithme de chiffrement si la sécurité n'est plus assurée parce qu'il a été découverte.
+Il faut toujours supposer que l'attaquant connaît le système.
+
+ - IV
+ - Chiffrement symétrique/asymétrique
+ - Chiffrement par bloc/flux
+ - Padding
+ - Signature
 
 #### Chiffrement symétrique
 

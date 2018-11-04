@@ -11,6 +11,23 @@ summary: Ce site reprend les principales informations du cours "Sécurité Appli
 
 ## Instructions pour les prochains cours
 
+### Vendredi 7 décembre
+
+ - Télécharger [InsecureBankV2](https://github.com/dineshshetty/Android-InsecureBankv2/raw/master/InsecureBankv2.apk)
+ - Télécharger et installer le [sdkmanager](https://developer.android.com/studio/), paragraphe "**Command line tools only**". Il n'est pas nécessaire de télécharger Android Studio.
+ - Installer les composants suivants:
+
+```
+$ cd <dossier  où l'archive a été extraite>
+$ bin/sdkmanager "platform-tools"  # fourni adb
+$ bin/sdkmanager "platforms;android-27" # fourni les images
+$ bin/sdkmanager "system-images;android-27;default;x86_64"# emulator
+$ bin/sdkmanager "system-images;android-27;google_apis;x86" # emulator
+$ bin/avdmanager create avd --device "Nexus 6" --package "system-images;android-27;default;x86_64" --name "testx"
+$ cd ../platform-tools
+$ ./adb install InsecureBankv2.apk
+```
+
 ### Vendredi 16 novembre
 
 Nous utiliserons les outils suivants lors de cette séance:

@@ -480,6 +480,24 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="instructions-pour-les-prochains-cours">Instructions pour les prochains cours</h2>
 
+<h3 id="vendredi-7-décembre">Vendredi 7 décembre</h3>
+
+<ul>
+  <li>Télécharger <a href="https://github.com/dineshshetty/Android-InsecureBankv2/raw/master/InsecureBankv2.apk">InsecureBankV2</a></li>
+  <li>Télécharger et installer le <a href="https://developer.android.com/studio/">sdkmanager</a>, paragraphe “<strong>Command line tools only</strong>”. Il n’est pas nécessaire de télécharger Android Studio.</li>
+  <li>Installer les composants suivants:</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;dossier  où l'archive a été extraite&gt;
+$ bin/sdkmanager "platform-tools"  # fourni adb
+$ bin/sdkmanager "platforms;android-27" # fourni les images
+$ bin/sdkmanager "system-images;android-27;default;x86_64"# emulator
+$ bin/sdkmanager "system-images;android-27;google_apis;x86" # emulator
+$ bin/avdmanager create avd --device "Nexus 6" --package "system-images;android-27;default;x86_64" --name "testx"
+$ cd ../platform-tools
+$ ./adb install InsecureBankv2.apk
+</code></pre></div></div>
+
 <h3 id="vendredi-16-novembre">Vendredi 16 novembre</h3>
 
 <p>Nous utiliserons les outils suivants lors de cette séance:</p>
@@ -598,7 +616,7 @@ pourra donner lieu à une bonification de la note.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Nov 3, 2018 <br />
+ Site last generated: Nov 4, 2018 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>
