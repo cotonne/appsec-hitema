@@ -81,7 +81,7 @@ pourra donner lieu à une bonification de la note.
 Il est conseillé d'utiliser un environnement linux (Debian-based de préférence) pour cette session (facilitera énormément les installations). 
 Une VM peut être utilisée ([Androl4b](https://github.com/sh4hin/Androl4b) par exemple).
  - Installer python 2
- - Télécharger [DIVA](https://github.com/cotonne/appsec-hitema/diva.apk)
+ - Télécharger [DIVA](https://github.com/cotonne/appsec-hitema/releases/download/0/diva.apk)
  - Décompresser le dossier, suivre les instructions d'AndroLabServer
  - Télécharger et installer le [sdkmanager](https://developer.android.com/studio/), paragraphe "**Command line tools only**". Il n'est pas nécessaire de télécharger Android Studio.
  - Installer les composants suivants:
