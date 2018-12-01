@@ -52,7 +52,7 @@ Ressources:
 
 # Sécurité Applicative
 
-La Sécurité Applicative (AppSec) cherche à protéger les actifs au niveau de l’application.
+La Sécurité Applicative (AppSec) cherche à protéger les actifs au niveau de l’application. La Sécurité applicative est le processus qui a pour but de trouver, corriger et améliorer la sécurité des applications afin de les rendre plus sûres.
 
 La norme ISO 27034 (Guide ISO sur la sécurité applicative) donne la définition suivante: 
 

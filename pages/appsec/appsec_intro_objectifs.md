@@ -57,6 +57,11 @@ Il faut toujours supposer que l'attaquant connaît le système.
  - Padding
  - Signature
 
+#### Ressources
+
+ * [Introduction aux primitives cryptographiques](https://securimag.org/wp/wp-content/uploads/2018/10/primitives_crypto.pdf)
+ * [Security Best Practices: Symmetric Encryption with AES, Part 1](https://proandroiddev.com/security-best-practices-symmetric-encryption-with-aes-in-java-7616beaaade9) et [Security Best Practices: Symmetric Encryption with AES, Part 2](https://proandroiddev.com/security-best-practices-symmetric-encryption-with-aes-in-java-and-android-part-2-b3b80e99ad36)
+
 #### Chiffrement symétrique
 
 Le chiffrement symétrique s'appuie sur une clé secrète partagée entre les deux parties.

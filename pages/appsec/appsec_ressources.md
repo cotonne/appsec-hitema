@@ -16,4 +16,5 @@ permalink: appsec_ressources
 
 # Sites
 
- -  (Bonnes pratiques de l'ANSSI](https://www.ssi.gouv.fr/administration/bonnes-pratiques/)
+ - [Bonnes pratiques de l'ANSSI](https://www.ssi.gouv.fr/administration/bonnes-pratiques/)
+ - [Kimminich IT security lecture](https://github.com/bkimminich/it-security-lecture)
