@@ -28,6 +28,12 @@ Pour le travail en individuel, il faudra:
 Le sujet sera présenté le mardi 8 janvier dans l'après-midi. L'après-midi sera consacré à l'étude et à la préparation du sujet.
 Les groupes seront défini le mardi.
 
+### Enoncé
+
+---
+L'énoncé est accessible ici: [ENONCE](pdf/enonce-audit-minizon.pdf)
+---
+
 #### Rapport
 
 Le rapport présentera:
@@ -45,6 +51,7 @@ Le rapport pourra être fait à un ou plusieurs.
 Taille estimée: 15-20 pages (hors introduction, conclusion, page de garde, bibliographie, ...).
 
 La qualité de l'écrit étant importante, un rapport contenant trop de fautes (orthographe, grammaire) sera pénalisé.
+
 
 Date limite : **25 février 2019**
 
