@@ -16,12 +16,12 @@ L'évaluation est constituée de deux parties:
  - Un travail individuel
 
 Pour le travail en groupe, il faudra:
- - Rendre un rapport avant le 25 février dernier délai (sur 8 points)
- - Présenter votre travail pendant de 45 minutes (sur 8 points) le 4 février
+ - Rendre un rapport avant le 25 février inclus dernier délai (sur 8 points)
+ - Présenter votre travail pendant de 45 minutes (sur 8 points) le 4 mars 
 
 Pour le travail en individuel, il faudra:
- - Rendre un rapport avant le 25 février dernier délai (sur 8 points)
- - Présenter votre travail pendant de 45 minutes (sur 8 points) le 4 février
+ - Rendre un rapport avant le 25 février inclus dernier délai (sur 8 points)
+ - Présenter votre travail pendant de 45 minutes (sur 8 points) le 4 mars
 
 ### Travail en groupe
 
