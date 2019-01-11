@@ -15,6 +15,7 @@ Les différents supports de cours sont disponibles ici:
  * [AppSec Web](pdf/20181016-AppSecWeb.pdf)
  * [AppSec_Mobile](pdf/20181207-AppSecMobile.pdf)
  * [SDLC](pdf/20190108-SDLC.pdf)
+ * [OpenSAMM/BSIMM](20190111-OpenSAMM.pdf)
 
 A venir:
  * OWASP OpenSAMM
