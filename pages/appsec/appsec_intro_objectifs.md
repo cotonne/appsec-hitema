@@ -114,6 +114,13 @@ Plusieurs questions sont à se poser. Même si les algorithmes sont sûrs, des e
  * Choix des blocs? ECB? CBC? OFB?
  * Comment stocker les clés en sécurité? Comment les échanger?
 
+#### TODO
+
+ - Stream cypher
+ - Attaque sur ECB, CBC (padding oracle attacks, ex: POODLE)
+ - one-time cypher (XOR)
+ - Malleabilité/Integrité
+
 ## Integrity
 
 L'intégrité est la "**capacité à empêcher qu’une donnée soit modifiée par une personne non autorisée ou d’une façon non voulue**".

@@ -13,6 +13,7 @@ permalink: appsec_ressources
  - "Writing Secure Code, Second Edition (Developer Best Practices)", Howard & LeBlanc, 2003
  - "The Security Development Lifecycle", Howad & Lipner, 2006
  - "Securing DevOps", Julien Vehent, 2018
+ - "Serious Cryptography - A Practical Introduction to Modern Encryption", Jean-Philippe Aumasson, 2017
 
 # Sites
 

@@ -103,6 +103,18 @@ On associera alors :
  - probabilité : visibilité, complexité, capacité des attaquants
  - conséquences : impact technique ou métier de la réalisation du risque (asset)
 
+Du côté de l'attaquant, le risque peut-être vu comme suit (extrait de _The Security Development Lifecycle: SDL: A Process for Developing Demonstrably More Secure Software_ par Michael Howard & Steve Lipner):
+
+> The cost-benefit ratio for a criminal is defined by Clark and Davis (Clark and Davis 1995) as
+> Mb + Pb > Ocp + OcmPaPc
+> where
+>  * Mb is the monetary benefit for the attacker.
+>  * Pb is the psychological benefit for the attacker.
+>  * Ocp is the cost of committing the crime.
+>  * Ocm is the monetary costs of conviction for the attacker (future lost opportunities and legal costs).
+>  * Pa is the probability of being apprehended and arrested.
+>  * Pc is the probability of conviction for the attacker.
+
 ### Threat analysis
 
 
