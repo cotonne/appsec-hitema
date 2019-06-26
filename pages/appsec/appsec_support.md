@@ -12,8 +12,8 @@ Les différents supports de cours sont disponibles ici:
 
 ## M1-Web
 
- * [Introduction/rappels](20190626-IntroHTTP.pdf)
- * [OWASP TOP 10](20190626-OWASPTOP10.pdf)
+ * [Introduction/rappels](pdf/20190626-IntroHTTP.pdf)
+ * [OWASP TOP 10](pdf/20190626-OWASPTOP10.pdf)
 
 ## M1-Sécurité
 
