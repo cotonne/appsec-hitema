@@ -143,4 +143,6 @@ entries:
       url: /appsec_support.html
       output: web, pdf
 
- 
+    - title: Syllabus
+      url: /appsec_syllabus.html
+      output: web, pdf 
