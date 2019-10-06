@@ -40,6 +40,22 @@ entries:
       url: /appsec_threat_and_risk.html
       output: web, pdf
 
+  - title: Cloud
+    output: web, pdf
+    folderitems:
+
+    - title: Le Cloud?
+      url: /appsec_cloud_definitions.html
+      output: web, pdf
+
+    - title: Les menaces du Cloud
+      url: /appsec_cloud_menaces.html
+      output: web, pdf
+  
+    - title: Le Cloud, nouvelles opportunités
+      url: /appsec_cloud_opportunites.html
+      output: web, pdf
+
   - title: Architecture
     output: web, pdf
     folderitems:
