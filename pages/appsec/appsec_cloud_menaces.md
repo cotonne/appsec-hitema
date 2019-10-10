@@ -111,8 +111,8 @@ des évènements.
 
 Pour un Cloud type IaaS, les bonnes pratiques d'infrastructures doivent déployées:
  - Systèmes "sécurisés par défaut" et renforcés (hardened): configurations sécurisées à l'installation, désactivation des services inutiles, anti-virus, produits applicatifs à jour...
- - Bonnes pratiques d'Architecture réseau : isolation des environnements, filtrage et contrôle des flux, 
- - Contrôle des accès admin 
+ - Bonnes pratiques d'Architecture réseau : isolation des environnements, filtrage et contrôle des flux...
+ - Contrôle des accès admin
 
 10. R10 - Non Production Environment Exposure
 
@@ -142,7 +142,7 @@ Ces deux listes mettent en avant plusieurs risques qu'il faut peser lors du choi
  - Le Cloud permet de donner une bonne assurance sur la disponibilité. Cependant, le Cloud publique présente malgré tout un risque en cas de conflit.
  - Comment assurer la confidentialité et l'intégrité des données stockées dans le Cloud? Doit-on s'appuyer sur les solutions de chiffrement des données du Cloud ou utiliser ces propres outils?
  - Le contrôle d'accès est essentiel et doit être assurer par un processus cohérent.
- - Un mauvaise usage du Cloud entraine facilement une exposition inutile des services. Il faut contrôler la surface d'attaque qui est offerte.
+ - Un mauvaise usage du Cloud entraîne facilement une exposition inutile des services. Il faut contrôler la surface d'attaque qui est offerte.
  - La supervision doit fonctionner de manière efficace.
 
 # Resources
