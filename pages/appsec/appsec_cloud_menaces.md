@@ -145,6 +145,82 @@ Ces deux listes mettent en avant plusieurs risques qu'il faut peser lors du choi
  - Un mauvaise usage du Cloud entraîne facilement une exposition inutile des services. Il faut contrôler la surface d'attaque qui est offerte.
  - La supervision doit fonctionner de manière efficace.
 
+
+# Architecture pour le Cloud
+
+Pour définir une architecture pour le Cloud, il est bon d'avoir des principes pour nous guider.
+Nous allons nous intéresser aux principes de design pour construire une application sécurisée.
+Ces principes possèdent plusieurs propriétés intéressantes:
+
+ * Ils sont peu nombreux (< 20)
+ * Ils sont simples à comprendre et à retenir
+ * Ce sont des principes de haut-niveau, indépendant de l'implémentation
+ * Ils adressent des problèmes fondamentaux dans la sécurité
+ * Ils sont “fractales”, c'est-à-dire qu'on peut les retrouver et les appliquer à tous les niveaux, de la conception en passant par l'architecture jusqu'au code.
+
+
+Puis, nous verrons les solutions offertes par le Cloud et comment traduire nos choix en solutions concrètes
+
+## Secure by Design
+
+En 1975,  Jerome Saltzer et Michael Schroeder ont proposé dans leur article intitulé *"The Protection of Information in Computer Systems"* plusieurs principes de design pour construire une application sécurisée:
+
+| Principes                       | Description | Applications au niveau de l'architecture
+| ---                             |             |                                          
+| **Economy of mechanism**        | Un design simple est facile à tester et à valider. Moins il y a, plus la surface d'attaque est réduite. On pourrait rapprocher ce principe de [KISS](https://en.wikipedia.org/wiki/KISS_principle). | Réduire les serveurs au minimum,
+| **Fail-safe defaults**          | Par défaut, en cas d'erreur, le système ne doit pas se retrouver dans un état non sécurisé. La gestion des d'erreurs est un point important.
+| **Complete mediation**          | L'authenticité (et l'authentification), l'intégrité et l'autorisation doivent être vérifiées à chaque fois qu'une requête est effectuée. Les droits d'accès sont entièrement revalidés à chaque accès. Ce genre de principe nous prémunit de failles telles que [IODR/Broken Object Level Authorization](https://github.com/OWASP/API-Security/raw/develop/2019/en/dist/owasp-api-security-top-10.pdf)
+| **Open design**                 | L'obfuscation seule ne sert à rien. Le design doit pouvoir être revu et justifié. Cela rejoint le [deuxième principe de Kerchoffs](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle#Origins). | Le schéma d'architecture ou les fichiers servant à l'Infra as Code peuvent être publiés sans risque.
+| **Separation of privilege**     | Le principe est d'empêcher qu'un décision prise soit validée par la même personne. Cela permet de renforcer la fiabilité d'un système en ayant un contrôle sur les actions d’un seul individu. Le principe est renommé en ["Separation of duties" ou "Segregation of duties"](https://en.wikipedia.org/wiki/Separation_of_duties). | Définition de niveaux d'isolation (tenant, VNet, subnet, ...), Gestion des droits d'accès, ...
+| **Least privilege**             | est-ce qu’un simple utilisateur devrait avoir les droits d'administration pour se connecter à une application? A-t'on besoin de faire tourner une application en root sur un serveur? A-t'on besoin de travailler en tant qu'administrateur sur son poste? | 
+| **Least common mechanism**      | Les utilisateurs ne devraient pas partager les mêmes outils, sauf si c’est indispensable. Ex: même câble pour le réseau, même PC, … (accès à des fichiers partagés, …). | Par conception, ce principe est mis à mal par le Cloud où les ressources sont fortement partagées. On cherchera à ne pas partager des ressources comme des VMs entre projets.
+| **Psychological acceptability** | Si la sécurité est trop compliquée, les utilisateurs trouveront un moyen de la contourner. | Si l'accès au Cloud est trop compliqué, on s'expose à ce que les utilisateurs face du ["Shadow IT"](https://en.wikipedia.org/wiki/Shadow_IT)
+| **Work factor**                 | L'effort à fournir par l’attaquant pour rentrer dans le système doit être important. Gros mots de passe, … | 
+| **Compromise recording**        | Le système devrait conserver une trace de toutes les attaques même si elles n'ont pas été bloquées. Indispensable pour l'analyse d'incident. | Utilisation de solutions "Log Sink" telles que Azure Monitor ou AWS CloudWatch.
+
+En 2009, Saltzer et Kaashoek ont complété cette liste dans [*"Principles of Computer System Design"*](https://ocw.mit.edu/resources/res-6-004-principles-of-computer-system-design-an-introduction-spring-2009/online-textbook/principles_open_5_0.pdf) avec d'autres principes:
+
+| Principes                          | Description | Applications au niveau de l'architecture 
+| ---                                |             |
+| **Minimize secrets**               | Parce qu'il y a une chance que le secret puisse être découvert, en changer doit être facile. Là encore, on rejoint le troisième principe de Kerchoff (*"correspondents must be able to change or modify [the key] at will"*). On parle alors de rotation des secrets | PKI as a Service, Vault, [Store config in environment](https://www.12factor.net/config)
+| Least astonishment                 | Ne réinventez pas la roue. Vos choix doivent être en cohérence avec l'état de l'art, les attentes et l'expérience des utilisateurs, ... | Il est important de s'appuyer sur des guides d'architecture pour constuire son système ([Azure](https://docs.microsoft.com/fr-fr/azure/architecture/guide/), [AWS](https://aws.amazon.com/fr/architecture/), [GCP](https://www.paloaltonetworks.com/resources/guides/gcp-architecture-guide) )
+| Design for iteration               | L'architecture ne sera sans doute pas parfaite du premier coup, concevez-là en prenant en compte ce principe pour faire en sorte que les changements soient faciles | L'amélioration continue appliquée à l'architecture. On s'interessera aux architectures micro-services ou aux notions ["evolutionary architectures"](https://www.thoughtworks.com/books/building-evolutionary-architectures).
+
+D'autres principes importants peuvent aussi être gardés en mémoire:
+
+| Principes                          | Description | Applications au niveau de l'architecture
+| ---                                |             |
+| **Defense in depth**               | C'est un principe de sécurité important. Plusieurs couches se compensent et se complètent les unes les autres. | Sur une architecture, on mettre en place deux firewalls de constructeurs différents, un WAF, une isolation avec des sous-réseaux, une validation des failles avec un sAST...
+| **Deny by default**                | Par défaut, toute actions est refusée. On ouvre les droits de manière parcimonieuse | Toutes les API doivent être sécurisées
+
+L'OWASP propose aussi une liste complète de [10 principes pour la sécurité par design](https://www.owasp.org/index.php/Security_by_Design_Principles). On retiendra:
+| Principes                          | Description | Applications au niveau de l'architecture
+| ---                                |             |
+| **Minimize attack surface**        | Réduire la surface que l'attaquant peut utiliser au minimum | Fermeture des ports, renforcement des machines, ...
+| **Fix security issues correctly**  | Tout problème doit être rapidement corrigé | Mettre en place des systèmes de détection telles que [Nessus](https://en.wikipedia.org/wiki/Nessus_(software)) ou [OpenVAS](http://www.openvas.org/)
+
+## Exemples de solution avec Azure
+
+La liste suivante est non exhaustive et soumise aux changements rapides du Cloud.
+Elle est organisée selon les différentes couches du modèle OSI:
+
+ - Level 3: NSG, IP Filtering (App Service), VPN, Bastion, Network Watcher
+ - Level 4: NSG, NSG DDoS Protection, Firewall
+ - Level 5: Application Gateway TLS
+ - Level 7: APG WAF, Advanced SQL Threat detection
+
+## Exemple d'architecture
+
+Le schéma suivant est tiré de ["Implement a DMZ between Azure and the Internet"](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+
+{% include image.html file="azure-architecture-dmz.png" caption="Schéma d'architecture" %}
+
+On retrouve ainsi:
+
+ - La présence de plusieurs zones pour isoler et limiter l'impact en cas de compromission.
+ - Les flux sont clairement indiqués. Il est possible de limiter les accès via des subnets ou les NSG.
+
+
 # Resources
  
  - ["Pentesting Azure Applications, The Definitive Guide to Testing and Securing Deployments"](https://nostarch.com/azure), Matt Burrough, No Starch Press, 2017
