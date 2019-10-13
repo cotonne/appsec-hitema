@@ -46,6 +46,11 @@ Ces clouds peuvent être accédés de plusieurs manières:
 
 A cela, on associe aussi la notion "On-premise". Une ressource "on-premise" est hébergée à l'extérieur d'un Cloud.
 
+# Les principaux fournisseurs de Cloud
+
+Le graphique suivant présente les parts de marché des principaux fournisseurs de Cloud
+{% include image.html file="cloud_market_share.png" caption="Parts de marché des fournisseurs de Cloud" %}
+
 # Les applications face au Cloud
 
 Le Cloud a changé la manière de concevoir les applications. Dans cette partie, nous nous intéresserons deux grands types d'applications qui "épousent" le Cloud:
