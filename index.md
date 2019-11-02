@@ -9,32 +9,24 @@ summary: Ce site reprend les principales informations du cours "Sécurité Appli
 
 {% include note.html content="A l'attention des étudiants HiTeMa : Merci de consulter ce site avant le cours pour avoir les différentes instructions" %}
 
-## Modalités d'évaluation
+## Modalités d'évaluation M1 Securité 2019 - 2020
 
 L'évaluation est constituée de deux parties:
- - Un travail en groupe
- - Un travail individuel
+ - Un rapport individuel
+ - Un devoir sur table qui sera fait le dernier jour de cours
 
-Pour le travail en groupe, il faudra:
- - Rendre un rapport avant le 25 février inclus dernier délai (sur 8 points)
- - Présenter votre travail pendant de 45 minutes (sur 8 points) le 4 mars 
+Pour le rapport individuel, l'étudiant choisira un sujet sur le thème de la sécurité. Les sujets peuvent être variées:
+ - Etude d'un IDS/IPS (ex: [suricata](https://suricata-ids.org/)), développement de règles pour la détection d'intrusion
+ - Etude d'un WAF (ex: [ModSecurity](https://modsecurity.org/)), test de by-pass des processus de détection
+ - Reverse d'applications mobile, d'objets connectés, ...
+ - Implémentation d'un exploit (pour MetaSploit, solution personnalisée...)
+ - Etude de produits de sécurité comme [RASP Baidu](https://github.com/baidu/openrasp)
+ - Etude de solutions type SAST (ex: [LGTM](https://semmle.com/lgtm), [Coverity](https://scan.coverity.com/) ...)
+ - Analyse d'une application ayant fait l'objet d'un exploit (par exemple, wordpress) et propositions/analyses de rémédiations 
 
-Pour le travail en individuel, il faudra:
- - Rendre un rapport avant le 25 février inclus dernier délai (sur 8 points)
- - Présenter votre travail pendant de 45 minutes (sur 8 points) le 4 mars
+**L'étudiant devra envoyer son sujet avant le 31 novembre pour validation.**
 
-### Travail en groupe
-
-Le sujet sera présenté le mardi 8 janvier dans l'après-midi. L'après-midi sera consacré à l'étude et à la préparation du sujet.
-Les groupes seront défini le mardi.
-
-### Enoncé
-
----
-L'énoncé est accessible ici: [ENONCE](pdf/enonce-audit-minizon.pdf)
----
-
-#### Rapport
+L'étudiant devra manipuler et mettre en oeuvre les outils.
 
 Le rapport présentera:
  - le problème et l'analyse associée
@@ -45,93 +37,40 @@ Dans ce rapport, vous étudierez le sujet proposé. Vous mettrez en oeuvre les c
 Vous proposerez des solutions en mettant en avant les avantages et les inconvénients.
 
 Le rapport utilisera au mieux les connaissances acquises lors du cours "Sécurité Applicative".
+Le rapport sera accompagné des sources développées pour le projet.
 
-Le rapport pourra être fait à un ou plusieurs.
 
-Taille estimée: 15-20 pages (hors introduction, conclusion, page de garde, bibliographie, ...).
+Taille estimée: 10-15 pages (hors introduction, conclusion, page de garde, bibliographie, ...).
 
 La qualité de l'écrit étant importante, un rapport contenant trop de fautes (orthographe, grammaire) sera pénalisé.
 
 
-Date limite : **25 février 2019**
-
-### Présentation
-
-Vous présenterez en classe vos conclusions. La présentation durera 45 min.
-Vous y résumerez votre rapport. 
-
-Vous montrez aussi votre maîtrise technique en démontrant la présence de failles dans l'application étudiée.
-
-Date de la présentation: **4 mars 2019**
-
-### Travail individuel
-
-Pour la partie individuelle, vous choisirez une problématique liée à la sécurité applicative.
-Le sujet reste libre: analyse d'une faille spécifique, problématique de sécurité liée à une nouvelle technologie,
-audit d'une application, ... Vous détaillerez vos résultats dans un rapport simplifié.
-
-Les éléments utilisés (scripts, programmes, ...) devront aussi ếtre sous une forme au choix (partage de fichiers, repository, ...)
-
-Taille estimée: au moins 3 pages.
-
-Date limite : **25 février 2019**
+Date limite : **31 janvier 2020**
 
 ### Bonus
 
 La participation active à ce site (ajout de notes, la relecture, propositions d'amélioration, ...)
 pourra donner lieu à une bonification de la note.
 
-## Instructions pour les prochains cours
+## Outils
 
-### Vendredi 7 décembre
+### Instructions pour les prochains cours
 
-Il est conseillé d'utiliser un environnement linux (Debian-based de préférence) pour cette session (facilitera énormément les installations). 
-Une VM peut être utilisée ([Androl4b](https://github.com/sh4hin/Androl4b) par exemple).
- - Installer python 2
- - Télécharger [DIVA](https://github.com/cotonne/appsec-hitema/releases/download/0/diva.apk)
- - Décompresser le dossier, suivre les instructions d'AndroLabServer
- - Télécharger et installer le [sdkmanager](https://developer.android.com/studio/), paragraphe "**Command line tools only**". Il n'est pas nécessaire de télécharger Android Studio.
- - Installer les composants suivants:
+A installer:
 
-```
-$ cd <dossier  où l'archive a été extraite>
-$ bin/sdkmanager "platform-tools"  # fourni adb
-$ bin/sdkmanager "platforms;android-27" # fourni les images
-$ bin/sdkmanager "system-images;android-27;default;x86_64"# emulator
-$ bin/sdkmanager "system-images;android-27;google_apis;x86" # emulator
-$ bin/avdmanager create avd --device "Nexus 6" --package "system-images;android-27;default;x86_64" --name "testx"
-$ cd ../emulator
-$ ./emulator @testx
-$ cd ../platform-tools
-$ ./adb install InsecureBankv2.apk
-```
+ - [Androl4b](https://github.com/sh4hin/Androl4b)  
+ - [KALI](https://www.kali.org/)
+ - Java 11
 
-### Vendredi 16 novembre
+### Outils
 
 Nous utiliserons les outils suivants lors de cette séance:
 
  - Google Gruyère. [Suivre les instructions pour installer en local](https://google-gruyere.appspot.com/part1) (Utile en cas de coupure réseau
  - [bodgeit](https://github.com/psiinon/bodgeit)
  - [OWASP Juice Shop](https://www.owasp.org/index.php/OWASP_Juice_Shop_Project)
-
-### Mardi 16 octobre
-
-Installer les composants suivants:
-
- - OWASP Zap
- - WebGoat 7
-
-### Lundi 15 octobre
-
-Aucun
-
-### Logiciels utilisés pendant le cours
-
-Les logiciels utilisés pendant le cours sont tous gratuits (Free as in beer) and open source.
-Les étudiants sont invités à les lire leur code source pour bien comprendre leur fonctionnement.
-
- - OWASP Zap
- - OWASP WebGoat
+ - [OWASP Zap](https://github.com/zaproxy/zaproxy/)
+ - [WebGoat 8](https://github.com/WebGoat/WebGoat)
  - Google Gruyere
  - Android SDK et platform-tools
  - InsecureBankv2
