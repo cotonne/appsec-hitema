@@ -17,7 +17,7 @@ permalink: appsec_mobile_rappels
 ```bash
 $ cd /home/andro/Android/Sdk/tools/bin/
 $ ./sdkmanager "platform-tools" "platforms;android-19" “system-images;android-19;default;armeabi-v7a”
-$ ./avdmanager create avd --force --name myAVD --abi default/armeabi-v7a --package 'system-images;android-19;default;armeabi-v7a' --device "Nexus S
+$ ./avdmanager create avd --force --name myAVD --abi default/armeabi-v7a --package 'system-images;android-19;default;armeabi-v7a' --device "Nexus S"
 $ /home/andro/Android/Sdk/emulator/emulator64-arm -avd myAVD
 ```
 
