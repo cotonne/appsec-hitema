@@ -1,3 +1,14 @@
+---
+title: Rappels sur le web
+tags: [web]
+keywords: web, rappels
+last_updated: July 3, 2016
+summary: "Rappels sur le web"
+sidebar: appsec_sidebar
+permalink: appsec_web_rappels
+---
+
+
 # Rappels sur le WEB
 
 Ce chapitre présente des rappels indispensables pour comprendre les différentes attaques présentées par la suite

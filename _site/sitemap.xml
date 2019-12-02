@@ -50,6 +50,24 @@
   
   
   <url>
+    <loc>http://localhost:4000/appsec_cloud_definitions</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_cloud_menaces</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_cloud_opportunités</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/appsec_intro_definition</loc>
   </url>
   
@@ -68,7 +86,7 @@
   
   
   <url>
-    <loc>http://localhost:4000/appsec_intro_objectifs</loc>
+    <loc>http://localhost:4000/appsec_mobile_rappels</loc>
   </url>
   
   
@@ -86,6 +104,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/appsec_syllabus</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/appsec_threat_and_risk</loc>
   </url>
   
@@ -93,6 +117,12 @@
   
   <url>
     <loc>http://localhost:4000/appsec_threat_and_risk</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_web_rappels</loc>
   </url>
   
   
@@ -184,12 +214,6 @@
   
   
   <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_mobile_rappels.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:4000/pages/appsec/appsec_mobile_top10.html</loc>
   </url>
   
@@ -227,12 +251,6 @@
   
   <url>
     <loc>http://localhost:4000/pages/appsec/appsec_secure_quality.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_web_rappels.html</loc>
   </url>
   
   

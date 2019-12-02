@@ -223,6 +223,36 @@
       
   
   <li>
+      <a href="#">Cloud</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_cloud_definitions.html">Le Cloud?</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_menaces.html">Les menaces du Cloud</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_opportunites.html">Le Cloud, nouvelles opportunités</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
       <a href="#">Architecture</a>
       <ul>
           
@@ -411,6 +441,13 @@
           
           
           
+          
+          
+          <li><a href="appsec_syllabus.html">Syllabus</a></li>
+          
+          
+          
+          
       </ul>
    </li>
      
@@ -478,27 +515,66 @@ $('#toc').on('click', 'a', function() {
 
    <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> A l’attention des étudiants HiTeMa : Merci de consulter ce site avant le cours pour avoir les différentes instructions</div>
 
-<h2 id="instructions-pour-les-prochains-cours">Instructions pour les prochains cours</h2>
+<h2 id="modalités-dévaluation-m1-securité-2019---2020">Modalités d’évaluation M1 Securité 2019 - 2020</h2>
 
-<h3 id="vendredi-7-décembre">Vendredi 7 décembre</h3>
-
+<p>L’évaluation est constituée de deux parties:</p>
 <ul>
-  <li>Télécharger <a href="https://github.com/dineshshetty/Android-InsecureBankv2/raw/master/InsecureBankv2.apk">InsecureBankV2</a></li>
-  <li>Télécharger et installer le <a href="https://developer.android.com/studio/">sdkmanager</a>, paragraphe “<strong>Command line tools only</strong>”. Il n’est pas nécessaire de télécharger Android Studio.</li>
-  <li>Installer les composants suivants:</li>
+  <li>Un rapport individuel</li>
+  <li>Un devoir sur table qui sera fait le dernier jour de cours</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;dossier  où l'archive a été extraite&gt;
-$ bin/sdkmanager "platform-tools"  # fourni adb
-$ bin/sdkmanager "platforms;android-27" # fourni les images
-$ bin/sdkmanager "system-images;android-27;default;x86_64"# emulator
-$ bin/sdkmanager "system-images;android-27;google_apis;x86" # emulator
-$ bin/avdmanager create avd --device "Nexus 6" --package "system-images;android-27;default;x86_64" --name "testx"
-$ cd ../platform-tools
-$ ./adb install InsecureBankv2.apk
-</code></pre></div></div>
+<p>Pour le rapport individuel, l’étudiant choisira un sujet sur le thème de la sécurité. Les sujets peuvent être variées:</p>
+<ul>
+  <li>Etude d’un IDS/IPS (ex: <a href="https://suricata-ids.org/">suricata</a>), développement de règles pour la détection d’intrusion</li>
+  <li>Etude d’un WAF (ex: <a href="https://modsecurity.org/">ModSecurity</a>), test de by-pass des processus de détection</li>
+  <li>Reverse d’applications mobile, d’objets connectés, …</li>
+  <li>Implémentation d’un exploit (pour MetaSploit, solution personnalisée…)</li>
+  <li>Etude de produits de sécurité comme <a href="https://github.com/baidu/openrasp">RASP Baidu</a></li>
+  <li>Etude de solutions type SAST (ex: <a href="https://semmle.com/lgtm">LGTM</a>, <a href="https://scan.coverity.com/">Coverity</a> …)</li>
+  <li>Analyse d’une application ayant fait l’objet d’un exploit (par exemple, wordpress) et propositions/analyses de rémédiations</li>
+</ul>
 
-<h3 id="vendredi-16-novembre">Vendredi 16 novembre</h3>
+<p><strong>L’étudiant devra envoyer son sujet avant le 31 novembre pour validation.</strong></p>
+
+<p>L’étudiant devra manipuler et mettre en oeuvre les outils.</p>
+
+<p>Le rapport présentera:</p>
+<ul>
+  <li>le problème et l’analyse associée</li>
+  <li>la méthodologie suivie</li>
+  <li>les solutions envisagées</li>
+</ul>
+
+<p>Dans ce rapport, vous étudierez le sujet proposé. Vous mettrez en oeuvre les connaissances acquises lors du cours.
+Vous proposerez des solutions en mettant en avant les avantages et les inconvénients.</p>
+
+<p>Le rapport utilisera au mieux les connaissances acquises lors du cours “Sécurité Applicative”.
+Le rapport sera accompagné des sources développées pour le projet.</p>
+
+<p>Taille estimée: 10-15 pages (hors introduction, conclusion, page de garde, bibliographie, …).</p>
+
+<p>La qualité de l’écrit étant importante, un rapport contenant trop de fautes (orthographe, grammaire) sera pénalisé.</p>
+
+<p>Date limite : <strong>31 janvier 2020</strong></p>
+
+<h3 id="bonus">Bonus</h3>
+
+<p>La participation active à ce site (ajout de notes, la relecture, propositions d’amélioration, …)
+pourra donner lieu à une bonification de la note.</p>
+
+<h2 id="outils">Outils</h2>
+
+<h3 id="instructions-pour-les-prochains-cours">Instructions pour les prochains cours</h3>
+
+<p>A installer:</p>
+
+<ul>
+  <li><a href="https://github.com/sh4hin/Androl4b">Androl4b</a></li>
+  <li><a href="https://www.kali.org/">KALI</a></li>
+  <li>Java 11</li>
+</ul>
+
+<h3 id="outils-1">Outils</h3>
 
 <p>Nous utiliserons les outils suivants lors de cette séance:</p>
 
@@ -506,29 +582,8 @@ $ ./adb install InsecureBankv2.apk
   <li>Google Gruyère. <a href="https://google-gruyere.appspot.com/part1">Suivre les instructions pour installer en local</a> (Utile en cas de coupure réseau</li>
   <li><a href="https://github.com/psiinon/bodgeit">bodgeit</a></li>
   <li><a href="https://www.owasp.org/index.php/OWASP_Juice_Shop_Project">OWASP Juice Shop</a></li>
-</ul>
-
-<h3 id="mardi-16-octobre">Mardi 16 octobre</h3>
-
-<p>Installer les composants suivants:</p>
-
-<ul>
-  <li>OWASP Zap</li>
-  <li>WebGoat 7</li>
-</ul>
-
-<h3 id="lundi-15-octobre">Lundi 15 octobre</h3>
-
-<p>Aucun</p>
-
-<h3 id="logiciels-utilisés-pendant-le-cours">Logiciels utilisés pendant le cours</h3>
-
-<p>Les logiciels utilisés pendant le cours sont tous gratuits (Free as in beer) and open source.
-Les étudiants sont invités à les lire leur code source pour bien comprendre leur fonctionnement.</p>
-
-<ul>
-  <li>OWASP Zap</li>
-  <li>OWASP WebGoat</li>
+  <li><a href="https://github.com/zaproxy/zaproxy/">OWASP Zap</a></li>
+  <li><a href="https://github.com/WebGoat/WebGoat">WebGoat 8</a></li>
   <li>Google Gruyere</li>
   <li>Android SDK et platform-tools</li>
   <li>InsecureBankv2</li>
@@ -546,34 +601,6 @@ Les étudiants sont invités à les lire leur code source pour bien comprendre l
 <ul>
   <li>Adresse email : yvan (point) phelizot (arobase) arolla (dot) fr</li>
 </ul>
-
-<h2 id="modalités-dévaluation">Modalités d’évaluation</h2>
-
-<h3 id="examen">Examen</h3>
-
-<p>Un examen aura lieu le <strong>Date à définir</strong> afin de valider les différentes compétences acquises pendant
-le cours.</p>
-
-<h3 id="projet">Projet</h3>
-
-<p>Un projet est prévu le 4 mars 2019. Il donnera lieu à un rapport présentant:</p>
-
-<ul>
-  <li>le problème</li>
-  <li>la méthodologie suivie</li>
-  <li>les solutions envisagées</li>
-</ul>
-
-<p>Le rapport utilisera au mieux les connaissances acquises lors du cours “Sécurité Applicative”.</p>
-
-<p>Le rapport pourra être fait à un ou plusieurs.</p>
-
-<p>Date limite : <strong>à définir</strong></p>
-
-<h3 id="bonus">Bonus</h3>
-
-<p>La participation active à ce site (ajout de notes, la relecture, propositions d’amélioration, …)
-pourra donner lieu à une bonification de la note.</p>
 
 
 
@@ -615,8 +642,8 @@ pourra donner lieu à une bonification de la note.</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2018 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Nov 4, 2018 <br />
+               &copy;2019 , Licence : CC BY-SA 3.0 FR.  <br />
+ Site last generated: Dec 2, 2019 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>

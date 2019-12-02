@@ -48,6 +48,39 @@
 
 
 {
+"title": "Le Cloud?",
+"tags": "cloud",
+"keywords": "cloud, définitions",
+"url": "appsec_cloud_definitions",
+"summary": "Le Clooud?"
+}
+,
+
+
+
+{
+"title": "Les menaces du Cloud",
+"tags": "cloud",
+"keywords": "cloud, menaces",
+"url": "appsec_cloud_menaces",
+"summary": "Les menaces du Cloud"
+}
+,
+
+
+
+{
+"title": "Le Cloud, nouvelles opportunités",
+"tags": "cloud",
+"keywords": "cloud, opportunités",
+"url": "appsec_cloud_opportunités",
+"summary": "Le Cloud, nouvelles opportunités"
+}
+,
+
+
+
+{
 "title": "Definitions",
 "tags": "formatting",
 "keywords": "notes, tips, cautions, warnings, admonitions",
@@ -81,10 +114,10 @@
 
 
 {
-"title": "Objectifs de la sécurité applicative",
-"tags": "formatting",
-"keywords": "notes, tips, cautions, warnings, admonitions",
-"url": "appsec_intro_objectifs",
+"title": "Quelques rappels poru le mobile",
+"tags": "mobile",
+"keywords": "mobile, rappels",
+"url": "appsec_mobile_rappels",
 "summary": ""
 }
 ,
@@ -114,6 +147,17 @@
 
 
 {
+"title": "Syllabus cours M1 Securité applicative",
+"tags": "formatting",
+"keywords": "syllabus",
+"url": "appsec_syllabus",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Risques et menaces",
 "tags": "formatting",
 "keywords": "threat, risk",
@@ -130,6 +174,17 @@
 "keywords": "threat, risk",
 "url": "appsec_threat_and_risk",
 "summary": ""
+}
+,
+
+
+
+{
+"title": "Rappels sur le web",
+"tags": "web",
+"keywords": "web, rappels",
+"url": "appsec_web_rappels",
+"summary": "Rappels sur le web"
 }
 ,
 
@@ -265,17 +320,6 @@
 "title": "",
 "tags": "",
 "keywords": "",
-"url": "pagesappsecappsec_mobile_rappels.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
 "url": "pagesappsecappsec_mobile_top10.html",
 "summary": ""
 }
@@ -343,17 +387,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_secure_quality.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_web_rappels.html",
 "summary": ""
 }
 ,

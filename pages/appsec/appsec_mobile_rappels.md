@@ -1,3 +1,13 @@
+---
+title: Quelques rappels poru le mobile
+tags: [mobile]
+keywords: mobile, rappels
+last_updated: November 2, 2018
+summary: ""
+sidebar: appsec_sidebar
+permalink: appsec_mobile_rappels
+---
+
 # Travaux pratiques
 
 ## Installation de l'environnement de développement
