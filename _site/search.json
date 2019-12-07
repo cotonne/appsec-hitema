@@ -114,6 +114,17 @@
 
 
 {
+"title": "TPs et bonnes pratiques",
+"tags": "mobile",
+"keywords": "mobile, TP, Androl4b",
+"url": "appsec_mobile_best_practices",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Quelques rappels poru le mobile",
 "tags": "mobile",
 "keywords": "mobile, rappels",
@@ -173,6 +184,17 @@
 "tags": "formatting",
 "keywords": "threat, risk",
 "url": "appsec_threat_and_risk",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Boite à outils",
+"tags": "boite à outils",
+"keywords": "mobile, web, binary",
+"url": "appsec_toolbox",
 "summary": ""
 }
 ,
@@ -299,17 +321,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_archi_security.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_mobile_best_practices.html",
 "summary": ""
 }
 ,

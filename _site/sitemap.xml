@@ -86,6 +86,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/appsec_mobile_best_practices</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/appsec_mobile_rappels</loc>
   </url>
   
@@ -117,6 +123,12 @@
   
   <url>
     <loc>http://localhost:4000/appsec_threat_and_risk</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/appsec_toolbox</loc>
   </url>
   
   
@@ -203,12 +215,6 @@
   
   <url>
     <loc>http://localhost:4000/pages/appsec/appsec_archi_security.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_mobile_best_practices.html</loc>
   </url>
   
   

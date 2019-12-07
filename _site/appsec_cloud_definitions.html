@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Le Clooud?">
+<meta name="keywords" content="cloud,  cloud, définitions">
+<title>Le Cloud? | AppSec HiTeMa</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="appsec-hitema" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> AppSec HiTeMa</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://www.hitema.fr" target="_blank">Hitema</a></li>
+                
+                
+                
+                <li class="active"><a href="appsec">AppSec-Hitema</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Le Cloud? page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Le Cloud?">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">appsec-hitema 0.1</li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Introduction</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_intro_index.html">Quelques exemples</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_intro_definition.html">Définitions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_intro_objectifs.html">Objectifs de la sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_threat_and_risk.html">Menaces et gestion du risque</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Cloud</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_cloud_definitions.html">Le Cloud?</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_menaces.html">Les menaces du Cloud</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_opportunites.html">Le Cloud, nouvelles opportunités</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Architecture</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_archi_rappels.html">Quelques rappels</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_principles.html">Principes</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_technical.html">Architecture technique</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_software.html">Architecture logicielle</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_fonctionnal.html">Architecture fonctionnelle</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_design.html">Modélisation appliquée à la sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_security.html">Cloud et sécurité</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">AppSec Web</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_web_rappels.html">Rappels sur le web</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_web_top10_owasp.html">Top 10 OWASP WEB</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">AppSec Mobile</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_mobile_rappels.html">Rappels et Contexte</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_mobile_best_practices.html">Bonnes pratiques</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_mobile_top10.html">Top 10 OWASP Mobile</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Développement sécurisé</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_secure_coding.html">Secure Coding</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_secure_quality.html">Qualité logicielle et sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_secure_devsecops.html">DevSecOps</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Cycle de développement sécurisé</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_sdlc_rappels.html">Rappels (Cycle en V, méthodes Agile)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_sdlc_microsoft.html">Microsoft SDLC</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_sdlc_samm.html">OWASP SAMM</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Ressources</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_ressources.html">Ressources</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_support.html">Supports de cours</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_syllabus.html">Syllabus</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Le Cloud?</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">Le Clooud?</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/github.com/cotonne/appsec-hitemapages/appsec/appsec_cloud_definitions.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <p>En 2006, Amazon lance son offre cloud avec <strong>Amazon Web Services</strong>. Le Cloud Computing est devenu un composant indispensable à toute entreprise, simplfiant la gestion des ressources et permettant de lancer un nouveau service en quelques clics.</p>
+
+<p>Le Cloud a facilité l’apparition de nouvelles architectures et de nouvelles pratiques permettant de l’exploiter à son maximum. Malgré tout, il faut adapter et maîtriser cet outil puissant.</p>
+
+<h1 id="quest-ce-qui-définit-un-cloud">Qu’est-ce qui définit un “Cloud”?</h1>
+
+<p>Lorsque l’on s’intéresse à un “Cloud”, plusieurs propriétés sont mise en avant:</p>
+
+<ul>
+  <li>On-demand/Self-service: l’obtention d’une ressource, que ce soit une machine, un produit applicatif comme un serveur Tomcat ou une base de données, est facile. Il n’est plus nécessaire de dépendre d’équipes en charge de la gestion des serveurs: plus de commandes des mois à l’avance en espérant que la capacité calculée est correcte.</li>
+  <li>Elastic: en cas de manque de puissance de calcul, il est possible d’ajouter de nouvelles machines. La scalabilité verticale est facilitée tant que certains contraintes sont respectées, notamment sur le partage d’un état entre machines. De même, l’ajout de CPU, de mémoire ou de disques peut se faire simplement en changeant une propriété. La scalabilité horizontale peut se faire en arrêtant la machine, modifier la propriété et redémarrer. Tout ça, en quelques instants sans dépendance.</li>
+  <li>Minimal management: L’exploitation est facilitée. Les machines peuvent être créées à l’identique, provisionnées ou décommissionner via le portail du fournisseur ou en ligne de commandes. De même, les actions classiques d’exploitation (sauvegarde, Plan de Reprise d’Activité/Plan de Continuité d’Activité (PRA/PCA), gestion des incidents, installations, supervision) sont allégées et facilitées par les services fournis par le Cloud.</li>
+  <li>Abstraction: Virtual Machine, Virtual Network, Function/Lambda, Service managé… L’utilisateur ne travaillera plus directement avec des machines ou des serveurs concrets. Il pourra même déployer son application sans savoir exactement sur quoi elle tourne.</li>
+  <li>Automation: Le Cloud offre de nombreux outils pour automatiser au maximum le déploiement: API, librairies dans un langage, CLI (client en ligne de commande). De plus, de nombreux outils s’interfacent avec les principaux fournisseurs pour offrir des services supplémentaires. On pourra citer <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.chef.io/products/chef-infra/">Chef</a>, <a href="https://www.ansible.com/">Ansible</a>, <a href="https://puppet.com/">Puppet</a></li>
+  <li>Shared: Les ressources peuvent être partagées. Ainsi, plusieurs machines virtuelles de différents clients peuvent co-exister sur la même machine.</li>
+  <li>Evolutionary: Grâce au Cloud, les architectures ne restent pas figées dans le temps. Elles sont malléables et facilement modifiables. Le lecteur intéressé pourra se référer à <a href="https://www.thoughtworks.com/books/building-evolutionary-architectures">https://www.thoughtworks.com/books/building-evolutionary-architectures</a></li>
+</ul>
+
+<h1 id="modèles-de-services">Modèles de services</h1>
+
+<p>Quand on parle <strong>Cloud</strong>, on parle aussi du niveau de contrôle que l’on peut avoir sur les différents composants et notre responsabilité.</p>
+
+<figure><img class="docimage" src="images/iaas-paas-serverless-saas.png" alt="" /><figcaption>Responsabilité/Contrôle selon le modèle (Source: https://dzone.com/articles/a-short-introduction-to-serverless-architecture)</figcaption></figure>
+
+<p>Définissons les modèles de services:</p>
+
+<ul>
+  <li>IaaS: Infrastructure as a Service. C’est le modèle offrant le plus de liberté. On définit précisement chaque élément constituant notre Système d’Informations.</li>
+  <li>CaaS: Container as a Service. Dans ce cas, l’application est déployé et géré par un orchestrateur. Les plus connus sont <a href="http://mesos.apache.org/">Mesos</a>, <a href="https://kubernetes.io/">Kubernetes</a> ou <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a>.</li>
+  <li>PaaS: Platform as a Service. Ce modèle abstrait les produits applicatifs sur lequel repose l’application (serveurs d’applications, base de données…). Il reste possible de choisir le type de serveur que l’on souhaite utiliser. On pensera à <a href="https://www.heroku.com">Heroku</a>, <a href="https://pivotal.io/fr/platform">Pivotal Cloud Foundry</a></li>
+  <li>FaaS: Function as a Service. Ici, le développeur fournit juste le code. Ensuite, tout est géré par le fournisseur du service.</li>
+  <li>SaaS: Software a a Service. Plus de code, tout est géré.</li>
+</ul>
+
+<p>Ces clouds peuvent être accédés de plusieurs manières:</p>
+
+<ul>
+  <li>Cloud publique: l’infrastructure est disponible pour tout le monde, via Internet.</li>
+  <li>Cloud privée: une entreprise installe et gère son cloud.</li>
+  <li>Hybride: deux clouds, un publique et un privé, communique</li>
+</ul>
+
+<p>A cela, on associe aussi la notion “On-premise”. Une ressource “on-premise” est hébergée à l’extérieur d’un Cloud.</p>
+
+<h1 id="les-principaux-fournisseurs-de-cloud">Les principaux fournisseurs de Cloud</h1>
+
+<p>Le graphique suivant présente les parts de marché des principaux fournisseurs de Cloud</p>
+<figure><img class="docimage" src="images/cloud_market_share.png" alt="" /><figcaption>Parts de marché des fournisseurs de Cloud</figcaption></figure>
+
+<h1 id="les-applications-face-au-cloud">Les applications face au Cloud</h1>
+
+<p>Le Cloud a changé la manière de concevoir les applications. Dans cette partie, nous nous intéresserons deux grands types d’applications qui “épousent” le Cloud:</p>
+
+<ul>
+  <li>Micro-services</li>
+  <li>Cloud-Native Applications</li>
+</ul>
+
+<h2 id="micro-services">Micro-services</h2>
+
+<p>Une application “micro-services” est une application découpée en une multitude de services faible couplé (il est possible de modifier un service sans impacté les autres) et fortement consistant (le service recouvre un domaine précis).</p>
+
+<p>On oppose généralement “application micro-service” et “application monolithique”. Historiquement, obtenir des serveurs étaient compliquées. De plus, les applications sont généralement imaginées comme couvrant un petit périmètre. Au cours de leur vie, ce périmètre augmente et l’application devient un géant difficile à maîtriser.</p>
+
+<p>Il n’est pas nécessaire d’être dans un environnement Cloud pour construire une application micro-service.
+Cependant, leur déploiement est généralement facilité puisqu’on peut avoir besoin d’allouer de nouvelles ressources en fonctions de l’évolution de l’architecture.</p>
+
+<p>On peut prendre comme exemple les micro-services pour faire fonctionner la plateforme Amazon ou de Netflix:</p>
+
+<figure><img class="docimage" src="images/microservice-amazon-netflix.png" alt="" /><figcaption>Architecture micro-service d'Amazon ou de Netflix (Source: https://divante.com/blog/10-companies-that-implemented-the-microservice-architecture-and-paved-the-way-for-others/)</figcaption></figure>
+
+<h2 id="cloud-native-applications">Cloud-Native Applications</h2>
+
+<p>La notion de “Cloud-Native Application” fait référence aux applications qui sont pensées pour fonctionner et exploiter au mieux le Cloud.</p>
+
+<p>Ces applications utilisent généralement au maximum les services mangées. Elles sont naturellement scalables, facilement restaurables en cas d’incident. Du point de vue du déploiement, celui-ci se fait en continu (<strong>Continuous Deployment</strong>), sans intervention manuelle. Elles respectent aussi le <a href="https://www.12factor.net/">Twelve-Factor App</a> proposé par Heroku.</p>
+
+<h1 id="le-cloud-et-la-sécurité">Le Cloud et la sécurité</h1>
+
+<p>Dans ce contexte, de nombreuses questions se posent:</p>
+
+<ul>
+  <li>Comment assurer la sécurité quand l’accès aux ressources semble si facile? Quelles règles définir par rapport aux aspects légales (Compliance) et à la politique définie dans mon entreprise?</li>
+  <li>Comment assurer la sécurité d’une application déployée en continu, sans pentest?</li>
+  <li>Quels risques représentent le Cloud pour mon organisation?</li>
+  <li>Comment construire une application sécurisée?</li>
+</ul>
+
+<p>En même temps, il est aussi important de voir les apports du Cloud:</p>
+
+<ul>
+  <li>La gestion facilité. Cela veut-il dire que la sécurité est gérée par le fournisseur? De quoi dois-je me préoccuper?</li>
+  <li>Des services avancées. Existe-t’il des services à valeur ajoutée pour la sécurité?</li>
+  <li>Est-ce que les nouvelles approches offertes par le Cloud peut améliorer la sécurité des applications?</li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        
+    </div>
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'appsec-hitema'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2019 , Licence : CC BY-SA 3.0 FR.  <br />
+<span>Page last updated:</span> July 3, 2016<br/> Site last generated: Dec 7, 2019 <br />
+<p><img src="images/hitema.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

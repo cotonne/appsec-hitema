@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Rappels sur le web">
+<meta name="keywords" content="web,  web, rappels">
+<title>Rappels sur le web | AppSec HiTeMa</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="appsec-hitema" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> AppSec HiTeMa</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://www.hitema.fr" target="_blank">Hitema</a></li>
+                
+                
+                
+                <li class="active"><a href="appsec">AppSec-Hitema</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the Rappels sur le web page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Rappels sur le web">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">appsec-hitema 0.1</li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Introduction</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_intro_index.html">Quelques exemples</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_intro_definition.html">Définitions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_intro_objectifs.html">Objectifs de la sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_threat_and_risk.html">Menaces et gestion du risque</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Cloud</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_cloud_definitions.html">Le Cloud?</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_menaces.html">Les menaces du Cloud</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_opportunites.html">Le Cloud, nouvelles opportunités</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Architecture</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_archi_rappels.html">Quelques rappels</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_principles.html">Principes</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_technical.html">Architecture technique</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_software.html">Architecture logicielle</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_fonctionnal.html">Architecture fonctionnelle</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_design.html">Modélisation appliquée à la sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_security.html">Cloud et sécurité</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">AppSec Web</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_web_rappels.html">Rappels sur le web</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_web_top10_owasp.html">Top 10 OWASP WEB</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">AppSec Mobile</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_mobile_rappels.html">Rappels et Contexte</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_mobile_best_practices.html">Bonnes pratiques</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_mobile_top10.html">Top 10 OWASP Mobile</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Développement sécurisé</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_secure_coding.html">Secure Coding</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_secure_quality.html">Qualité logicielle et sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_secure_devsecops.html">DevSecOps</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Cycle de développement sécurisé</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_sdlc_rappels.html">Rappels (Cycle en V, méthodes Agile)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_sdlc_microsoft.html">Microsoft SDLC</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_sdlc_samm.html">OWASP SAMM</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Ressources</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_ressources.html">Ressources</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_support.html">Supports de cours</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_syllabus.html">Syllabus</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Rappels sur le web</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">Rappels sur le web</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/github.com/cotonne/appsec-hitemapages/appsec/appsec_web_rappels.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <h1 id="rappels-sur-le-web">Rappels sur le WEB</h1>
+
+<p>Ce chapitre présente des rappels indispensables pour comprendre les différentes attaques présentées par la suite</p>
+
+<h2 id="le-protocole-http">Le protocole HTTP</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>, pour HyperText Transfer Protocol, est le 
+protocole de base du Web. La version actuelle, HTTP/1.1 a été définie en 1997 et a continué d’évoluer.
+Les prochaines versions sont HTTP/2 qui commencent à se diffuser et HTTP/3.</p>
+
+<p>HTTP permet à un client de dialoguer avec un serveur HTTP. Le client envoie une requête et le serveur envoie une réponse.</p>
+
+<figure><img class="docimage" src="images/intro_web_query_response.png" alt="" /><figcaption>Requête/réponse à un serveur</figcaption></figure>
+
+<p>Le protocole est sans état. Le serveur ne garde pas, en théorie, d’informations sur les précédents échanges.
+Les sessions ont été créées pour permettre de conserver des informations entre les appels.</p>
+
+<p>Voici un exemple de requête/réponse obtenu avec cURL:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -v http://www.lemonde.fr
+&gt; GET / HTTP/1.1
+&gt; Host: www.lemonde.fr
+&gt; User-Agent: curl/7.55.1
+&gt; Accept: */*
+&lt; HTTP/1.1 301 Moved Permanently
+&lt; Location: https://www.lemonde.fr/
+&lt; Content-Length: 0
+&lt; Accept-Ranges: bytes
+&lt; Date: Sun, 30 Sep 2018 07:08:15 GMT
+&lt; Via: 1.1 varnish
+&lt; Age: 27
+&lt; Connection: keep-alive
+&lt; X-Served-By: cache-cdg20729-CDG
+&lt; Set-Cookie: prog-deploy=23; expires=Fri, 29 Mar 2019 07:08:15 GMT; path=/; domain=.lemonde.fr;
+&lt; Set-Cookie: prog-deploy2=78; expires=Fri, 29 Mar 2019 07:08:15 GMT; path=/; domain=.lemonde.fr;
+</code></pre></div></div>
+
+<p>Nous allons analyser les constituants du protocole HTTP et voir comment ils peuvent être détournées par un attaquant.</p>
+
+<h2 id="uniform-resource-locator">Uniform Resource Locator</h2>
+
+<p>L’URL est un moyen d’obtenir des ressources situées sur le réseau. Dans l’exemple d’introduction, il s’agissait de <strong>http://www.lemonde.fr</strong>.</p>
+
+<p>Elle se décompose comme suit:</p>
+
+<blockquote>
+  <p>http://login:pwd@www.here.com:8888/chemin/d/acc%C3%A8s.php?q=req&amp;q2=req2#s</p>
+</blockquote>
+
+<ul>
+  <li>http: le schéma ou scheme en anglais</li>
+  <li>www.here.com: l’hôte</li>
+  <li>8888: le port de connexion</li>
+  <li>/chemin/d/acc%C3%A8s.php: le chemin d’accès ou path en anglais</li>
+  <li>?q=req&amp;q2=req2: la requête/query</li>
+  <li>#s: le fragment</li>
+</ul>
+
+<h3 id="le-schéma">Le schéma</h3>
+
+<p>Le schéma sert à indiquer la manière dont une ressource doit être accédée. 
+Par exemple, il est possible d’avoir les schémas suivants, potentiellement interprétable par un navigateur:</p>
+
+<ul>
+  <li>http/https</li>
+  <li>file</li>
+  <li>ftp</li>
+  <li>gopher, shttp, …</li>
+  <li>[javascript:alert(1)](javascript:alert(1)]</li>
+  <li><a href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAwFBMVEXm7NK41k3w8fDv7+q01Tyy0zqv0DeqyjOszDWnxjClxC6iwCu11z6y1DvA2WbY4rCAmSXO3JZDTxOiwC3q7tyryzTs7uSqyi6tzTCmxSukwi9aaxkWGga+3FLv8Ozh6MTT36MrMwywyVBziSC01TbT5ZW9z3Xi6Mq2y2Xu8Oioxy7f572qxzvI33Tb6KvR35ilwTmvykiwzzvV36/G2IPw8O++02+btyepyDKvzzifvSmw0TmtzTbw8PAAAADx8fEC59dUAAAA50lEQVQYV13RaXPCIBAG4FiVqlhyX5o23vfVqUq6mvD//1XZJY5T9xPzzLuwgKXKslQvZSG+6UXgCnFePtBE7e/ivXP/nRvUUl7UqNclvO3rpLqofPDAD8xiu2pOntjamqRy/RqZxs81oeVzwpCwfyA8A+8mLKFku9XfI0YnSKXnSYZ7ahSII+AwrqoMmEFKriAeVrqGM4O4Z+ADZIhjg3R6LtMpWuW0ERs5zunKVHdnnnMLNQqaUS0kyKkjE1aE98b8y9x9JYHH8aZXFMKO6JFMEvhucj3Wj0kY2D92HlHbE/9Vk77mD6srRZqmVEAZAAAAAElFTkSuQmCC">data</a></li>
+</ul>
+
+<p>Un attaquant peut exploiter certains d’entre eux (comme data ou javascript) pour agir sur le comportement d’une application web.</p>
+
+<h3 id="lhôte">L’hôte</h3>
+
+<p>L’hôte peut-être représenté sous forme d’une adresse IP ou d’un nom de domaine. 
+Le nom de domaine est résolu sous le forme d’une IP via un appel au DNS.</p>
+
+<p>Ici, nous n’étudierons pas les possibilités qu’à un attaquant de détourner les noms de domaines (par exemple, avec du <a href="https://en.wikipedia.org/wiki/DNS_spoofing">DNS spoofing</a>). De même, un attaquant peut profiter des caractères non-ASCII pour le nom de domaine et effectuer une <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack">attaque homographique</a> (par exemple, avec <a href="https://www.xn--80ak6aa92e.com/">https://www.аррӏе.com/</a>, à tester sous Firefox). On peut déjà noter que l’attaquant possède plusieurs points pour effectuer une attaque.</p>
+
+<p>La représentation d’une adresse IP n’est pas non plus unique. Ainsi, les représentations suivantes sont valables pour un navigateur:</p>
+
+<ul>
+  <li>https://216.58.213.164/ : IPv4</li>
+  <li>https://[2a00:1450:4007:808::2004]/ : IPv6</li>
+  <li>http://0xd83ad5a4 : représentation hexadecimale</li>
+  <li>http://0x7f.1/ : représentation héxadécimale réduite</li>
+  <li>http://033016552644 : représentation octale</li>
+  <li>//0xd83ad5a4 : représentation héxadécimale sans schéma</li>
+</ul>
+
+<p>Grâce à ces différentes formes, un attaquant peut essayer de passer des contrôles liés au format. Ainsi <a href="033016552644">033016552644</a> peut potentiellement vu comme une simple chaine de caractères et être interprété comme une URL par le navigateur.</p>
+
+<h2 id="requêtes-http">Requêtes HTTP</h2>
+
+<p>Pour obtenir une réponse d’un serveur, il est nécessaire de fournir au moins la méthode et la resssource.
+Les autres éléments sont optionnelles.</p>
+
+<p>Le <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages">Mozilla Developer Network présente avec détails le fonctionnement de HTTP</a>.</p>
+
+<h3 id="méthodes">Méthodes</h3>
+
+<p>Dans l’exemple d’introduction, la méthode était <strong>GET</strong>. Il est possible de tester un appel avec netcat:</p>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>echo -e “GET / HTTP/1.1\nHost: www.lemonde.fr\n\n”</td>
+        <td>nc www.lemonde.fr 80</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>Il existe de nombreuses méthodes qui ont une sémantique propre:</p>
+<ul>
+  <li>GET</li>
+  <li>POST: Un corps (<strong>body</strong>) est envoyé avec la requête. C’est généralement dans le body de la requête que le contenu d’un formulaire est envoyé.</li>
+  <li>PUT</li>
+  <li>PATCH</li>
+  <li>DELETE</li>
+  <li>HEAD</li>
+  <li>TRACE</li>
+  <li>OPTIONS: permet de connaître les méthodes supportées par le navigateur. Nous en reparlerons dans le cas de CORS.</li>
+  <li>…</li>
+</ul>
+
+<p>Le <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">Mozilla Developer Network</a> décrit ces méthodes.</p>
+
+<p>Un attaquant peut essayer différentes méthodes et espérer un résultat. Dans le cadre des API, nous verrons comment cela peut conduire à une vulnérabilité de type <a href="https://github.com/OWASP/API-Security/blob/develop/2019/en/dist/owasp-api-security-top-10.pdf">Missing Function/Resource Level Access Control</a>.</p>
+
+<h3 id="en-têtes">En-têtes</h3>
+
+<p>Des en-têtes sont transmis en même temps que la requête. Ils servent à informer le serveur des attentes du client concernant le contenu.</p>
+
+<p>Là encore, le <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">MDN décrit les en-têtes</a>.
+On pourra les noter les en-têtes suivants:</p>
+
+<ul>
+  <li>Host: Spécifie le nom de domaine. Cela peut servir pour du <a href="https://httpd.apache.org/docs/2.4/vhosts/examples.html">virtual hosting</a> quand plusieurs sites sont sur le même serveur avec des alias différents.</li>
+  <li>Content-Length: longueur du contenu. Ici, il est possible de jouer avec les valeurs pour perturber le serveur <a href="https://portswigger.net/web-security/request-smuggling/exploiting">exemple(</a>)</li>
+  <li>Content-Type: <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">type MIME</a> du contenu envoyé. Un attaquant peut indiquer un type différent pour tromper l’application</li>
+  <li>Cookie: le “fameux” cookie. Nous en parlons un peu plus dans la suite.</li>
+  <li>Referer: l’adresse de la page précedemment visitée qui contient le lien sur lequel on a cliqué. Cela peut exposer des URLs internes à une entreprise</li>
+  <li>User-Agent: donne des informations sur le client. Exemple:i <code class="highlighter-rouge">user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/76.0.3809.100 Chrome/76.0.3809.100 Safari/537.36</code>. Avec ces informations, un attaquant peut tenter d’exploiter des vulnérabilités spécifiques.</li>
+</ul>
+
+<h3 id="le-corps">Le corps</h3>
+
+<p>Un contenu est généralement présent avec des requêtes de type POST ou PUT.
+Les champs d’un formulaire sont envoyés dedans.</p>
+
+<h2 id="réponses-http">Réponses HTTP</h2>
+
+<p>Les réponses donnent généralement beaucoup d’informations sur le serveur.</p>
+
+<h3 id="code-de-retour">Code de retour</h3>
+
+<p>Le serveur renvoie différents codes de retour. Le premier chiffre indique la classe de la réponse:</p>
+<ul>
+  <li>1XX: message informatif. On le retrouve avec les websocket par exemple qui renvoie un code <strong>100 Continue</strong>.</li>
+  <li>2XX: le serveur répond avec succès (Exemple: 200 OK)</li>
+  <li>3XX: Redirection (Exemple</li>
+  <li>4XX: Erreur de la part du client (Exemple: 404 Not Found)</li>
+  <li>5XX: Erreur côté serveur. Le message <strong>500 Internal Server Error</strong> indique que le serveur a “planté” du fait de la requête. Il est généralement plutôt conseillé de transformer la réponse en code 400 et de tracer l’erreur. L’attaquant aura plus de difficulté à faire la différence entre une requête pouvant être détournée car elle fait “planter” le serveur et une requête avec des paramètres incorrects.</li>
+</ul>
+
+<p>Dis autrement <a href="https://twitter.com/stevelosh/status/372740571749572610">Tweet original</a>:</p>
+
+<blockquote>
+  <p>1xx: hold on
+2xx: here you go
+3xx: go away
+4xx: you fucked up
+5xx: I fucked up</p>
+</blockquote>
+
+<h3 id="en-têtes-1">En-têtes</h3>
+
+<p>De même, de nombreux en-têtes existent. Les plus intéressants sont:</p>
+
+<ul>
+  <li>Server: renvoie le nom du serveur et la version (Exemple: <code class="highlighter-rouge">server: meinheld/0.6.1</code>). Cet en-tête peut être modifié ou supprimé. C’est rarement le cas. Grâce à cette information, un attaquant peut sélectionner un exploit pour perturber ou prendre possession du serveur.</li>
+  <li>X-Powered-By: ici aussi, le serveur indique quelle framework est utilisée (Exemple: <code class="highlighter-rouge">X-Powered-By: Flask</code>).</li>
+  <li>Via/X-Forwarded-For: la requête a été modifiée par un proxy ou un répartiteur de charge (<strong>LoadBalancer</strong>).</li>
+  <li>Strict-Transport-Security: indique que le certificat doit être considéré comme sûr pendant un certain temps. Si un attaquant tente de changer le certificat, le client refusera la réponse du serveur.</li>
+  <li>X-Frame-Options: indique au client si la page peut être dans une autre page. Le but est d’empecher le clickjacking où un site légitime est inclut dans un site contrôlé par l’attaquant. Celui-ci peut tenter de superposer des éléments HTML pour capturer des identifiants par exemple.</li>
+  <li>Content-Security-Policy: cet en-tête décrit au client si tel ressource peut être incluse ou utilisée dans la page.</li>
+  <li>Expect-CT: ce nouvel en-tête a pour but de contrer le cas où une autorité de certification a été compromise. Dans ce cas, un attaquant aurait toute possibilité de créer des certificats reconnus par les navigateurs.</li>
+</ul>
+
+<h3 id="contenu">Contenu</h3>
+
+<p>Nous allons parler un peu plus du contenu renvoyé, notamment les pages HTML, dans le dernier paragraphe.</p>
+
+<h2 id="ssltls">SSL/TLS</h2>
+
+<h2 id="présentation">Présentation</h2>
+
+<p>Les protocoles Secure Sockets Layer (SSL) et Transport Layer Security (TLS) ont pour but de mettre en oeuvre une communication sécurisée entre client et serveur. Pour ce faire:</p>
+<ul>
+  <li>La communication est chiffrée avec pour but d’assurer les propriétés d’intégrité et de confidentialité à l’échange. Le client et le serveur s’accordent sur l’algorithme à utiliser via la  “poignée de main” (<strong>handshake</strong>).</li>
+  <li>La communication est authentifiée. Le serveur envoie son certificat signée par une autorité de confiance (une autorité qui a son certificat installée sur le poste client). Le client valide alors le certificat. Généralement, le client ne s’authentifie pas au serveur (ou en tout cas, pas via certificat).</li>
+</ul>
+
+<p>SSL et TLS ont évolué au cours du temps:</p>
+<ul>
+  <li>1995: SSL1, jamais publié car contienaient des failles conceptuels</li>
+  <li>1995: SSL2, publié mais avaient des failles</li>
+  <li>1996: SSL3</li>
+  <li>1999: TLS1.0</li>
+  <li>2006: TLS1.1</li>
+  <li>2008: TLS1.2</li>
+  <li>2018: TLS1.3, changement dans les algorithmes acceptéss, hash de session pour une connexion plus rapide</li>
+</ul>
+
+<h3 id="tls-12-et-13">TLS 1.2 et 1.3</h3>
+
+<p>La communcation HTTP est sécurisée avec TLS via le protocole HTTPS (pour <strong>HTTP over SSL/TLS</strong>).
+TLS n’est pas forcément uniquement utilisé avec HTTP. On le retrouve sur d’autres protocoles comme FTP.</p>
+
+<p>L’ANSSI propose un guide intitulé <a href="https://www.ssi.gouv.fr/uploads/2016/09/guide_tls_v1.1.pdf">Recommendations de sécurité relatives à TLS</a>. Ce guide présente le “handshake” ainsi que les suites de chiffrements recommandées pour TLS 1.2.</p>
+
+<p>Comment lire une suite cryptographique? Prenons la suite <code class="highlighter-rouge">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</code>:</p>
+<ul>
+  <li>TLS: protocole utilisée</li>
+  <li>EC: Courbe elliptique.</li>
+  <li>DHE: Diffie-Hellmann pour l’échange de clé de session. Cela assure la proprité de <strong>Perfect Forward Secrecy</strong></li>
+  <li>DSA: Digital Signature Algorithm</li>
+  <li>AES256: algorithme de chiffrement symétrique qui utilise la clé de session</li>
+  <li>GCM: Galois/Counter Mode. Il s’agit d’un mode d’opération pour le chiffrement par bloc, au même titre que CBC ou ECB mais sans leurs défauts respectifs.</li>
+  <li>SHA384</li>
+</ul>
+
+<p>La nouvelle norme TLS 1.3 introduit:</p>
+<ul>
+  <li>un handshake simplifié lors d’une nouvelle visite</li>
+  <li>Le Perfect Forward Secrecy est obligatoire</li>
+</ul>
+
+<h3 id="certificats">Certificats</h3>
+
+<p>Récupérons et analysons un certificat:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ openssl s_client -connect www.google.fr:443 &lt;/dev/null 2&gt;/dev/null|openssl x509 -text
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            13:1d:4a:3d:37:0f:49:26:08:00:00:00:00:19:0d:b6
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, O=Google Trust Services, CN=GTS CA 1O1
+        Validity
+            Not Before: Oct 10 20:55:10 2019 GMT
+            Not After : Jan  2 20:55:10 2020 GMT
+        Subject: C=US, ST=California, L=Mountain View, O=Google LLC, CN=google.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:cb:71:89:7f:29:21:a5:14:a2:06:8a:ab:44:eb:
+                    ...
+                    46:16:04:03:85:63:30:93:50:99:6b:13:23:50:4a:
+                    3e:29
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                DA:26:F6:BF:40:67:75:79:01:76:95:56:CE:46:60:07:96:3D:5E:49
+            X509v3 Authority Key Identifier: 
+                keyid:98:D1:F8:6E:10:EB:CF:9B:EC:60:9F:18:90:1B:A0:EB:7D:09:FD:2B
+
+            Authority Information Access: 
+                OCSP - URI:http://ocsp.pki.goog/gts1o1
+                CA Issuers - URI:http://pki.goog/gsr2/GTS1O1.crt
+
+            X509v3 Subject Alternative Name: 
+                DNS:google.com, DNS:*.2mdn.net, DNS:*.android.com, ...
+            X509v3 Certificate Policies: 
+                Policy: 2.23.140.1.2.2
+                Policy: 1.3.6.1.4.1.11129.2.5.3
+
+            X509v3 CRL Distribution Points: 
+
+                Full Name:
+                  URI:http://crl.pki.goog/GTS1O1.crl
+
+            CT Precertificate SCTs: 
+                Signed Certificate Timestamp:
+                    Version   : v1(0)
+                    Log ID    : B2:1E:05:CC:8B:A2:CD:8A:20:4E:87:66:F9:2B:B9:8A:
+                                25:20:67:6B:DA:FA:70:E7:B2:49:53:2D:EF:8B:90:5E
+                    Timestamp : Oct 10 21:55:29.328 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:57:B5:92:7A:2C:9E:5D:AC:4F:B4:45:B7:
+                                4F:25:45:51:E3:26:8A:F4:66:57:E5:DB:4C:A6:05:6E:
+                                32:4F:D5:DF:02:20:2E:6C:20:22:CF:57:E4:62:C2:52:
+                                45:DD:2F:8B:93:D1:90:2D:DE:D0:0E:C8:1E:61:AD:7C:
+                                62:AA:0B:A7:4A:CA
+                Signed Certificate Timestamp:
+                    Version   : v1(0)
+                    Log ID    : 5E:A7:73:F9:DF:56:C0:E7:B5:36:48:7D:D0:49:E0:32:
+                                7A:91:9A:0C:84:A1:12:12:84:18:75:96:81:71:45:58
+                    Timestamp : Oct 10 21:55:29.380 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:78:25:8B:52:C1:33:86:7E:A0:83:54:38:
+                                76:B2:9C:B5:04:13:89:27:7A:40:2D:F5:08:52:C2:52:
+                                22:0A:16:9D:02:20:32:93:C8:68:F9:ED:64:96:DC:90:
+                                D0:DC:EB:2F:16:D7:69:65:8B:BF:21:31:63:07:D2:92:
+                                3C:5E:9D:DA:92:EA
+    Signature Algorithm: sha256WithRSAEncryption
+         23:a1:ac:33:24:cd:ac:81:dc:e5:9a:c4:07:c2:57:82:cf:46:
+         ...
+         45:eb:f5:96:2d:4b:c8:c8:7b:1c:3e:89:3d:17:e4:71:6d:79:
+         e6:e8:32:8b
+</code></pre></div></div>
+
+<p>On retrouve dans ce certificat:</p>
+<ul>
+  <li>Son propriétaire (<code class="highlighter-rouge">Subject: C=US, ST=California, L=Mountain View, O=Google LLC, CN=google.com</code>)</li>
+  <li>La clé publique</li>
+  <li>Des extensions pour x509, notamment celle pour Expect-CT</li>
+  <li>La signature de l’autorité de confiance</li>
+</ul>
+
+<p>Par défaut, un certificat est associé à un domaine et, potentiellement, plusieurs sous-domaines. Cependant, cela ne prouve pas à qui appartient le site.
+Par exemple, avec <a href="https://letsencrypt.org/">Let’s Encrypt</a>, il suffit d’ajouter un champ TXT avec une valeur spécifique au niveau du DNS pour obtenir un certificat reconnu.
+Pour prouver l’identité d’un possesseur, les autorités de confiance contrôlent l’identité et crée un certificat spécial: <a href="https://en.wikipedia.org/wiki/Extended_Validation_Certificate">Extended Validation Certificate</a>.</p>
+
+<h3 id="attaques-possibles">Attaques possibles</h3>
+
+<p>De nombreuses attaques sont possibles:</p>
+
+<ul>
+  <li>Absence de certificat: on force la communication à rester en HTTP ou il n’a pas été prévu de redirection vers HTTPS.</li>
+  <li>Remplacement du certificat: via un Man-in-the-Middle par exemple, un attaquant peut tenter d’introduire son certificat</li>
+  <li>Production d’un certificat contrefait: L’utilisateur est dirigé vers un site. L’attaquant a volé un certificat maître connu du client et le certificat est signé par cette autorité de confiance. Le site est alors considéré comme sûr.</li>
+  <li>Faille dans l’implémentation (<a href="https://en.wikipedia.org/wiki/Heartbleed">HeartBleed</a>)</li>
+  <li>Faille dans les algorithmes: les algorithmes faibles comme MD5 pour la signature ou RC4 ne sont pas utilisés avec TLS</li>
+  <li>Social Engineering pour faire accepter un certificat non valide</li>
+  <li>Interception d’une communication chiffrée et déchiffrement ultérieur grâce au vol du certificat: se référer à la partie <strong>Perfect Forward Secrecy</strong></li>
+  <li>Downgrade de protocoles (<a href="https://en.wikipedia.org/wiki/POODLE">POODLE</a>)</li>
+  <li>Certaines <a href="https://en.wikipedia.org/wiki/Dual_EC_DRBG">organismes</a> semblent aussi être à l’oeuvre pour affaiblir les protocoles.</li>
+</ul>
+
+<h3 id="protections">Protections</h3>
+
+<h4 id="perfect-forward-secrecy">Perfect Forward Secrecy</h4>
+
+<p>Imaginons que la communication entre le client et le serveur ait été interceptée et que l’attaquant posssède la clé privée du certificat.
+Normalement, avec des suites type RSA pour la partie échange de clé de session, le client utilise la clé publique du certifcat pour envoyer la clé de session au serveur. Cependant, si l’attaquant possède la clé privée, il est en mesure de déchiffrer l’ensemble de la communication. Nous renvoyons le lecteur à la capture <a href="https://wiki.wireshark.org/SampleCaptures#SSL_with_decryption_keys">SSL with decryption keys</a> pour tester.</p>
+
+<p>Comment empêcher cette situation? La réponse passe par l’échange selon l’algorithme de Diffie-Hellmann. Cet algorithme permet d’échanger la clé de session de session sans faire transiter la clé sur le canal de communication. Le schéma suivant présente l’échange en action:</p>
+
+<figure><img class="docimage" src="images/intro_web_dhe.png" alt="" /><figcaption>Diffie-Hellmann en action</figcaption></figure>
+
+<p>Le flux est le suivant:</p>
+<ul>
+  <li>Le serveur génère les valeurs a, P et G. Le serveur envoie au client <code class="highlighter-rouge">A = g^a mod p</code> et (p,g).</li>
+  <li>Le client génère la valeur b. Le client envoie au serveur B = g^b mod p</li>
+  <li>Le serveur calcule alors K = B^a mod p. Le client calcule K = A^b mod p.</li>
+</ul>
+
+<p>Client et Serveur ont donc la même clé sans que l’attaquant l’ait vu passer. 
+Pour pouvoir retrouver les valeurs a et b et potentiellement construire K, un attaquant doit résoudre le problème du <a href="https://fr.wikipedia.org/wiki/Logarithme_discret">logarithme discret</a> qui est un problème mathématiquement dur.</p>
+
+<h4 id="configuration">Configuration</h4>
+
+<ul>
+  <li><a href="https://ssl-config.mozilla.org/">Mozilla SSL Configuration Generator</a></li>
+  <li><a href="https://tools.kali.org/information-gathering/sslyze">SSLyze</a></li>
+</ul>
+
+<h4 id="education">Education</h4>
+
+<p>L’éducation des utilisateurs reste un élément essentiel. Savoir quand accepté un certificat ou qu’un site peut ne pas être viable aide dans la sécurisation globale.</p>
+
+<h2 id="cookies--sessions">Cookies &amp; Sessions</h2>
+
+<h2 id="contenu-1">Contenu</h2>
+
+<h3 id="html">HTML</h3>
+
+<h3 id="javascript">Javascript</h3>
+
+<h3 id="same-origin-policy">Same Origin Policy</h3>
+
+<h3 id="cross-origin-resource-sharing">Cross-Origin Resource Sharing</h3>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        
+    </div>
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'appsec-hitema'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2019 , Licence : CC BY-SA 3.0 FR.  <br />
+<span>Page last updated:</span> July 3, 2016<br/> Site last generated: Dec 7, 2019 <br />
+<p><img src="images/hitema.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

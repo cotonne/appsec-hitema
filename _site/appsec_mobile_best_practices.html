@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | AppSec HiTeMa</title>
+<meta name="keywords" content="mobile,  mobile, TP, Androl4b">
+<title>TPs et bonnes pratiques | AppSec HiTeMa</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,7 +135,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the  page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the TPs et bonnes pratiques page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -153,7 +153,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="TPs et bonnes pratiques">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -470,13 +470,15 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">TPs et bonnes pratiques</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary"></div>
    
 
     
@@ -511,10 +513,170 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   
+   <h1 id="travaux-pratiques">Travaux pratiques</h1>
+
+<h2 id="installation-de-lenvironnement">Installation de l’environnement</h2>
+
+<ul>
+  <li>Télécharger <a href="https://github.com/sh4hin/Androl4b">Androl4b disponible ici</a>. Attention, il vous faudra environ 20Go de disponible.</li>
+</ul>
+
+<p>De préférence, utiliser VirtualBox.</p>
+
+<p>Lors de l’installation:</p>
+<ul>
+  <li>Assigner 2 CPU à la VM</li>
+  <li>Désactiver le support de l’USB.</li>
+</ul>
+
+<h2 id="emulateur-android">Emulateur Android</h2>
+
+<p>Par défaut, Androl4b a un émulateur installé prêt à l’emploi. Vous pouvez le démarrer en cliquant sur l’icône “Emulator” sur le bureau ou en exécutant la commande suivante dans un invité de commande:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>/home/andro/Android/Sdk/emulator/emulator @lab
+</code></pre></div></div>
+
+<p>Il est alors possible de se connecter sur le téléphone émulé avec:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>adb shell
+root@generic:/ <span class="c"># id</span>
+<span class="nv">uid</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>0<span class="o">(</span>root<span class="o">)</span> <span class="nv">context</span><span class="o">=</span>u:r:shell:s0
+root@generic:/ <span class="c"># </span>
+</code></pre></div></div>
+
+<p>On notera que, par la suite, les commandes éxécutées sur un terminal Linux d’Androl4b seront préfixées par <strong>andro@l4b:</strong> et celles sur le téléphone par <strong>root@generic:</strong>.</p>
+
+<p>Si vous souhaitez tester les commandes sur votre téléphone, vous devez activer le <a href="https://developer.android.com/studio/debug/dev-options">mode développeur</a> dessus.
+Dans le cas de l’émulateur, celui-ci est rooté, nous permettant d’effectuer des actions impossibles sur un vrai téléphone.</p>
+
+<h1 id="analyse-dun-apk">Analyse d’un APK</h1>
+
+<h2 id="analyse-statique">Analyse statique</h2>
+
+<h3 id="ouvrir-un-apk-avec-jadx">Ouvrir un APK avec jadx</h3>
+
+<h3 id="modifier-les-sources">Modifier les sources</h3>
+
+<p>###</p>
+
+<h2 id="analyse-dynamique">Analyse dynamique</h2>
+
+<h3 id="frida">frida</h3>
+
+<h4 id="installation">Installation</h4>
+
+<p>Pour l’analyse statique du code, nous nous appuyerons sur <a href="https://github.com/frida/frida/releases">Frida</a>. Frida permet de faire de l’instrumentation dynamique de code, c’est-à-dire qu’il peut modifier le programme sans avoir besoin de modifier les sources.</p>
+
+<p>Frida est déjà installé sur la VM. Il est préférable de commencer par mettre à jour frida:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> frida
+andro@l4b:~<span class="nv">$ </span>/home/andro/.local/bin/frida <span class="nt">--version</span>
+12.7.25
+</code></pre></div></div>
+
+<p>Télécharger ensuite le serveur frida qui servira pour manipuler le programme Android:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>wget <span class="nt">-O</span> frida-server.xz https://github.com/frida/frida/releases/download/<span class="k">$(</span>~/.local/bin/frida <span class="nt">--version</span><span class="k">)</span>/frida-server-<span class="k">$(</span>~/.local/bin/frida <span class="nt">--version</span><span class="k">)</span><span class="nt">-android-arm</span>.xz
+andro@l4b:~<span class="nv">$ </span>unxz frida-server.xz
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>adb forward tcp:27042 tcp:27042
+andro@l4b:~<span class="nv">$ </span>adb push frida-server /data/local/tmp/ 
+andro@l4b:~<span class="nv">$ </span>adb shell <span class="s2">"chmod 755 /data/local/tmp/frida-server"</span>
+andro@l4b:~<span class="nv">$ </span>adb shell <span class="s2">"/data/local/tmp/frida-server &amp;"</span>
+andro@l4b:~<span class="nv">$ </span>~/.local/bin/frida-ps <span class="nt">-U</span> | <span class="nb">grep </span>frida
+1066  frida-server
+</code></pre></div></div>
+
+<h4 id="uncrackable-level1">UnCrackable-Level1</h4>
+
+<p>L’OWASP a développé <a href="https://github.com/OWASP/owasp-mstg/tree/master/Crackmes">un ensemble d’applications</a> que nous pouvons utiliser pour nous entrainer. Chaque application contient un mot de passe qu’il va valoir récupérer et valider dans l’application.</p>
+
+<p>Commençons par récupérer le niveau 1:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>wget https://github.com/OWASP/owasp-mstg/raw/master/Crackmes/Android/Level_01/UnCrackable-Level1.apk
+andro@l4b:~<span class="nv">$ </span>adb install UnCrackable-Level1.apk
+</code></pre></div></div>
+
+<p>Il est installé dans la liste des apps sous le nom <strong>Uncrackable1</strong>. Si vous tentez de le démarer, l’application affiche une popup et s’arrête juste après indiquant que le téléphone est rooté.</p>
+
+<figure><img class="docimage" src="images/uncrackable1_popup.png" alt="" /><figcaption>Popup au démarrage</figcaption></figure>
+
+<p>Analysons le code pour voir le problème avec jadx:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>/home/andro/Desktop/Tools/MARA_Framework/tools/jadx-0.6.0/bin/jadx-gui UnCrackable-Level1.apk 
+</code></pre></div></div>
+
+<p>Si nous analysons l’unique Activity de cet apk, nous voyons qu’elle fait appel à plusieurs fonctions de <strong>sg.vantagepoint.a.c</strong>:</p>
+<figure><img class="docimage" src="images/uncrackable1_src_activity.png" alt="" /><figcaption>Code source de l'activity</figcaption></figure>
+
+<p>La classe c implémente plusieurs <a href="https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md">mécanismes de détection de rooting</a> du téléphone: présence des programmes comme su, APKs spécifiques, …</p>
+<figure><img class="docimage" src="images/uncrackable1_c.png" alt="" /><figcaption>Code source de la classe c</figcaption></figure>
+
+<p>Il nous est nécessaire d’outre-passer cette protection. Frida va nous y aider.
+Dans le code, nous avons la condition suivante:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">a</span><span class="o">()</span> <span class="o">||</span> <span class="n">c</span><span class="o">.</span><span class="na">b</span><span class="o">()</span> <span class="o">||</span> <span class="n">c</span><span class="o">.</span><span class="na">c</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">a</span><span class="o">(</span><span class="s">"Root detected!"</span><span class="o">);</span> <span class="c1">// End of application</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Il faut donc faire en sorte que toutes les fonctions retournent <strong>false</strong> pour ne pas rentrer dans la condition. Frida peut installer des <strong>hooks</strong> dans le code de l’application qui va remplacer les fonctions existantes par nos fonctions. Créer le fichier hook.js avec le contenu suivant:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Java</span><span class="p">.</span><span class="nx">perform</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">RootDetector</span> <span class="o">=</span> <span class="nx">Java</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'sg.vantagepoint.a.c'</span><span class="p">);</span>
+    <span class="nx">RootDetector</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">overload</span><span class="p">().</span><span class="nx">implementation</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">RootDetector</span><span class="p">.</span><span class="nx">b</span><span class="p">.</span><span class="nx">overload</span><span class="p">().</span><span class="nx">implementation</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">RootDetector</span><span class="p">.</span><span class="nx">c</span><span class="p">.</span><span class="nx">overload</span><span class="p">().</span><span class="nx">implementation</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Nous pouvons ensuite lancer le hook avec la commande suivante:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>andro@l4b:~<span class="nv">$ </span>frida <span class="nt">-U</span> <span class="nt">-f</span> org.owasp.uncrackable1 <span class="nt">-l</span> hook.js
+</code></pre></div></div>
+
+<h1 id="allez-plus-loin">Allez plus loin…</h1>
+
+<h2 id="installer-un-autre-émulateur">Installer un autre émulateur</h2>
+
+<ul>
+  <li>Exécuter les commandes suivantes pour créer un émulateur en local:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /home/andro/Android/Sdk/tools/bin/
+<span class="nv">$ </span>./sdkmanager <span class="s2">"platform-tools"</span> <span class="s2">"platforms;android-19"</span> “system-images<span class="p">;</span>android-19<span class="p">;</span>default<span class="p">;</span>armeabi-v7a”
+<span class="nv">$ </span>./avdmanager create avd <span class="nt">--force</span> <span class="nt">--name</span> myAVD <span class="nt">--abi</span> default/armeabi-v7a <span class="nt">--package</span> <span class="s1">'system-images;android-19;default;armeabi-v7a'</span> <span class="nt">--device</span> <span class="s2">"Nexus S"</span>
+<span class="nv">$ </span>/home/andro/Android/Sdk/emulator/emulator64-arm <span class="nt">-avd</span> myAVD
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="applications-vulnérables">Applications vulnérables</h2>
+
+<h3 id="diva">DIVA</h3>
+
+<ul>
+  <li>Télécharger DIVA</li>
+</ul>
+
+<h3 id="uncrackable">UnCrackable</h3>
+
+<ul>
+  <li>Télécharger <a href="https://github.com/OWASP/owasp-mstg/tree/master/Crackmes">UnCrackable</a></li>
+</ul>
+
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_mobile.html" class="btn btn-default navbar-btn cursorNorm" role="button">mobile</a>
+        
+        
         
     </div>
 
@@ -545,7 +707,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 , Licence : CC BY-SA 3.0 FR.  <br />
- Site last generated: Dec 2, 2019 <br />
+<span>Page last updated:</span> November 2, 2018<br/> Site last generated: Dec 7, 2019 <br />
 <p><img src="images/hitema.png" alt="Company logo"/></p>
                 </div>
             </div>
