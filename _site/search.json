@@ -212,6 +212,17 @@
 
 
 
+{
+"title": "OWASP Top 10",
+"tags": "web",
+"keywords": "web, rappels",
+"url": "appsec_web_top10_owasp",
+"summary": "OWASP Top 10"
+}
+,
+
+
+
 
 
 {
@@ -398,17 +409,6 @@
 "tags": "",
 "keywords": "",
 "url": "pagesappsecappsec_secure_quality.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesappsecappsec_web_top10_owasp.html",
 "summary": ""
 }
 ,

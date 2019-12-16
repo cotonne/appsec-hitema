@@ -139,6 +139,12 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/appsec_web_top10_owasp</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -257,12 +263,6 @@
   
   <url>
     <loc>http://localhost:4000/pages/appsec/appsec_secure_quality.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/appsec/appsec_web_top10_owasp.html</loc>
   </url>
   
   

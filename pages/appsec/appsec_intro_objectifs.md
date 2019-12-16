@@ -135,7 +135,7 @@ Quelques exemples de perte d'intégrité
  - Accès/Introduction dans un système
  - Injection d’erreurs lors d’une transaction bancaire
 
-### Authentification et autorisation
+### Identification, Authentification et autorisation
 
 Pour assurer l'intégrité, le système doit donc être capable de reconnaitre un utilisateur et doit être aussi capable d'associer les droits à cet utilisateur.
 
