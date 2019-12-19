@@ -10,13 +10,13 @@ permalink: appsec_web_top10_owasp
 
 La fondation [OWASP](https://www.owasp.org/index.php/Main_Page) (pour Open Web Application Security Project) 
 est une organisation qui a pour but d'aider à améliorer la sécurité des applications WEB. 
-Aujourd'hui, elle propose des recommendations sur de nombreux sujets ainsi que des outils pour sécuriser 
+Aujourd'hui, elle propose des recommandations sur de nombreux sujets ainsi que des outils pour sécuriser 
 les applications.
 
 L'un des projets phare de l'OWASP est le TOP 10. Il en existe de nombreuses déclinaisons, le plus connu
 étant le [TOP 10 WEB](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project). 
-Celui-ci recense les menaces les plus courantes sur les applications web. L'un des buts de ce classment
-est d'aider à la priorisation des tests de sécurité. 
+Celui-ci recense les menaces les plus courantes sur les applications web. L'un des buts de ce classement
+est d'aider à la priorisation des tests de sécurité.
 
 Le tableau suivant présente le classement depuis 2007:
 
@@ -57,7 +57,7 @@ Le problème est que le système intermédiaire ne fait aucune vérification et 
 retrouvent contenir un programme.
 
 Prenons un exemple courant: l'injection SQL
- - L'attaquant inclut dans la source de données des commandes SQL qui seront interprétees par le serveur SQL
+ - L'attaquant inclut dans la source de données des commandes SQL qui seront interprétées par le serveur SQL
  - L'interpréteur est le serveur SQL
  - Le système intermédiaire peut être un programme écrit en python, java, C#... qui transmet les données et appuie ces décisions sur ce que renvoie l'interpréteur.
 
@@ -91,7 +91,7 @@ Normalement, la requête qui envoyée au serveur SQL est:
 > SELECT * FROM users  where username='john' and password='pass'
 
 Si la table **users** contient une ligne avec une utilisateur appellé **john** dont le mot de passe
-est **pass**, alors la ligne est retournée à l'application Java qui renvoie les informations secretes.
+est **pass**, alors la ligne est retournée à l'application Java qui renvoie les informations secrètes.
 Mais, que se passe-t'il si un attaquant accède à l'application avec l'URL suivante:
 
 > http://host/path?username=john&password=mauvais_password'%20or%20'1'%3D'1
@@ -116,9 +116,9 @@ On a alors la requête suivante:
 > SELECT * FROM users
 
 La requête finale exécutée par le serveur SQL revient à renvoyer toute la table users.
-Or, dans le programme Java, il suffit qu'au moins une ligne soit renvoyée pour que 
+Or, dans le programme Java, il suffit qu'au moins une ligne soit renvoyée pour que
 la partie "secret information" s'exécute.
-Sans connaitre le mot de passe de l'utilisateur, il a été possible d'obtenir les informations.
+Sans connaître le mot de passe de l'utilisateur, il a été possible d'obtenir les informations.
 
 Bien utilisée, une injection SQL peut permettre de récupérer l'ensemble du contenu de la base.
 
@@ -132,11 +132,11 @@ Comme indiqué, il est possible de remplacer la partie "interpréteur". On retro
 ### Solutions
 
 Pour s'en protéger, il existe plusieurs solutions:
- - Echappement: les caractères sensisbles, c'est-à-dire qui pourrait être traitées par l'interpréteur, doivent être rendus inopérants par l'application intermédiaire. Ainsi, la simple quote (') vue dans l'exemple précédent devient \'.
+ - Échappement: les caractères sensibles, c'est-à-dire qui pourrait être traitées par l'interpréteur, doivent être rendus inopérants par l'application intermédiaire. Ainsi, la simple quote (') vue dans l'exemple précédent devient \'.
  - Sanitization/Purification: ici, les caractères sensibles sont tout simplement supprimées
  - Validation: on vérifie le format du contenu. Ainsi, est-ce normal que le nom contient le signe égal? A noter que la validation est moins facile pour le mot de passe pour lequel on souhaite garder une forte entropie. Se reporter à la partie [Secure Coding]() pour voir comment valider correctement une donnée
  - Prepared Statements: cette solution ne marche que si l'interpréteur est une base SQL. On pré-construit la requête via une [Prepared Statement)[https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html].
- - Dans une approche "défense-en-profondeur", il est aussi possible de réduire les droits du compte utilisé pour intéragir avec l'interpréteur. Dans le cas du serveur SQL, inutile que l'utilisateur est accès aux tables système par exemple. Si une exécution de commandes doit être faite, on peut utiliser des solutions comme Docker, chroot, SELinux,... pour isoler l'exécution de la commande.
+ - Dans une approche "défense-en-profondeur", il est aussi possible de réduire les droits du compte utilisé pour interagir avec l'interpréteur. Dans le cas du serveur SQL, inutile que l'utilisateur est accès aux tables système par exemple. Si une exécution de commandes doit être faite, on peut utiliser des solutions comme Docker, chroot, SELinux,... pour isoler l'exécution de la commande.
 
 ### Outils
 
@@ -155,16 +155,15 @@ Il est aussi possible de découvrir ces vulnérabilités via une approche dynami
 ### Présentation
 
 Beaucoup d'applications mettent en oeuvre des solutions d'authentification et d'autorisation.
-Ces mécanismes sont indispensables pour assurer les propriétés de confidentialité et d'intégrité 
-des données.
+Ces mécanismes sont indispensables pour assurer les propriétés de confidentialité et d'intégrité des données.
 
 Si un attaquant arrive à outrepasser ou à détourner la phase d'authentification, il est impossible
 d'assurer que nous savons qui accède à notre système. La menace, représentée par 
 [2017-A2 Broken Authentication](https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication)
 est que le le processus d’authentification ne joue pas son rôle.
 
-Différents scénarios sont possibles pour 
- - L'authentification a mal été configurée ou mal implémentée. 
+Différents scénarios sont possibles pour :
+ - L'authentification a mal été configurée ou mal implémentée.
  - Si un attaquant possède l'identifiant d'un utilisateur, il peut tenter de se connecter en essayant de deviner son mot de passe de l'utilisateur.
  # L'attaquant teste de nombreux mots de passe différents sur l'interface de connexion. On parle alors de mode "online". Le mot de passe peut-être extrèmement simple voire très courant. L'attaquant pourra alors s'appuyer sur des listes comme les [10 millions de mots de passe les plus courants](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt)
  # L'attaquant a réussi à récupérer le mot de passe hashé dans la table des utilisateurs. Il tente alors de le retrouver via un mode "offline" ou hors-ligne.
@@ -174,9 +173,9 @@ Différents scénarios sont possibles pour
 
 Les exemples de scénarios nous aident à imaginer des solutions simples:
  - Règles de mots de passe: il est courant d'avoir des règles comme 'longueur du mot de passe supérieur à 8 caractères'. Le but de ce type de règles est de faire en sorte que l'attaquant doive essayer un grand nombre de mot de passe. Le nombre d'essais pour trouver le mot de passe en essayant, même de façon aléatoire, les combinaisons correspond à la "[force du mot de passe](https://en.wikipedia.org/wiki/Password_strength)" ou d'entropie (une mesure de l'aspect aléatoire du mot de passe). Des [libraries](https://github.com/jreesuk/entropizer) peuvent calculer cette valeur. Généralement, un mot de passe est considéré comme sûr quand son entropie est autour de 29 bits dans le cas d'attaque "online" et de 96 bits pour des attaques "offline" (cf. [Wikipedia Password Strength](https://en.wikipedia.org/wiki/Password_strength#Required_bits_of_entropy))
- - Ré-authentification sur les actions sensibles: si la session a été "volée", l'attaquant ne connait pas forcément le mot de passe de l'utilisateur. Pour toute action sensible, il est pertinent de redemander le mot de passe de l'utilisateur.
+ - Ré-authentification sur les actions sensibles: si la session a été "volée", l'attaquant ne connaît pas forcément le mot de passe de l'utilisateur. Pour toute action sensible, il est pertinent de redemander le mot de passe de l'utilisateur.
  - Multi-Factor Authentication: il est intéressant d'implémenter plusieurs solutions pour réussir l'authentification. C'est le but du MFA. Ainsi, si le mot de passe est compromis, il semble peu probable que l'attaquant réussisse aussi à compromettre le téléphone.
- - Respecter les guidelines pour les sessions: ne pas exposer l'identifiant de session, limiter la durée de validité, gérer correctement côté serveur... 
+ - Respecter les guidelines pour les sessions: ne pas exposer l'identifiant de session, limiter la durée de validité, gérer correctement côté serveur...
  - Détecter les comportement suspects: il faut limiter le nombre de tentatives, en fonction de l’IP, de l’heure (soir) ou de la date (week-end), ... "bloquer" le compte et prévenir son propriétaire et l'administrateur.
  - Stocker correctement les mots de passe en base: ils doivent être hashés et salés avec des algorithmes sûrs type bcrypt ou PBKDF2.
 
@@ -190,9 +189,27 @@ Lors des tests, il peut être intéressant de mettre en oeuvre les mêmes outils
 
 ### Présentation
 
+L'"exposition de données sensibles" ou **Sensitive Data Exposure** est une menace pesant sur la récupération
+de données par l'attaquant. Les données ont d'abord une valeur métier: numéros de cartes de crédit, informations
+personnelles, mots de passes.
+
+L'exposition de ces données est possible de nombreuses façons:
+ - Le numéro de carte bleue est affiché en clair dans le profil de l'utilisateur. Si l'utilisateur a laissé sa session ouverte sur un poste publique, un attaquant opportuniste peut récupérer ce numéro.
+ - La réponse JSON ou un en-tête d'une API renvoie beaucoup trop d'informations. Toutes ne sont pas affichées à l'écran mais un attaquant peut repérer cette fuite de données.
+ - Les données transites en clair sur le réseau WiFi dans un aéroport. Via une écoute passive, un attaquant peut facilement les récupérer.
+ - Les mots de passes sont stockées en clair dans la base. Si une faille type SQL Injection était présente dans l'application, il serait trivial pour un attaquant d'avoir accès à ces mots de passe.
+
 ### Solutions
 
+Ici, il est important mettre en place du chiffrement efficace pour assurer la confidentialité des données.
+Pour ce faire, il faut vérifier :
+ - Que les données sont chiffrées que ce soit en transit ou lorsqu'elles sont stockées.
+ - De respecter les guides pour le choix et la configuration des algorithmes de chiffrement
+ - Que les clés soient fortes et correctement protégées
+
 ### Outils
+
+ - [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/)
 
 
 ## A4-XML External Entities

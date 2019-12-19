@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="OWASP Top 10">
+<meta name="keywords" content="web,  web, rappels">
+<title>OWASP Top 10 | AppSec HiTeMa</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="appsec-hitema" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> AppSec HiTeMa</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://www.hitema.fr" target="_blank">Hitema</a></li>
+                
+                
+                
+                <li class="active"><a href="appsec">AppSec-Hitema</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:yvan.phelizot@arolla.fr?subject=AppSec - HiTeMa feedback&body=I have some feedback about the OWASP Top 10 page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="OWASP Top 10">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">appsec-hitema 0.1</li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Introduction</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_intro_index.html">Quelques exemples</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_intro_definition.html">Définitions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_intro_objectifs.html">Objectifs de la sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_threat_and_risk.html">Menaces et gestion du risque</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Cloud</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_cloud_definitions.html">Le Cloud?</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_menaces.html">Les menaces du Cloud</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_cloud_opportunites.html">Le Cloud, nouvelles opportunités</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Architecture</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_archi_rappels.html">Quelques rappels</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_principles.html">Principes</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_technical.html">Architecture technique</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_software.html">Architecture logicielle</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_fonctionnal.html">Architecture fonctionnelle</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_design.html">Modélisation appliquée à la sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_archi_security.html">Cloud et sécurité</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">AppSec Web</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_web_rappels.html">Rappels sur le web</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_web_top10_owasp.html">Top 10 OWASP WEB</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">AppSec Mobile</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_mobile_rappels.html">Rappels et Contexte</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_mobile_best_practices.html">Bonnes pratiques</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_mobile_top10.html">Top 10 OWASP Mobile</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Développement sécurisé</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_secure_coding.html">Secure Coding</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_secure_quality.html">Qualité logicielle et sécurité</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_secure_devsecops.html">DevSecOps</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Cycle de développement sécurisé</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_sdlc_rappels.html">Rappels (Cycle en V, méthodes Agile)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_sdlc_microsoft.html">Microsoft SDLC</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_sdlc_samm.html">OWASP SAMM</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Ressources</a>
+      <ul>
+          
+          
+          
+          <li><a href="appsec_ressources.html">Ressources</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_support.html">Supports de cours</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="appsec_syllabus.html">Syllabus</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">OWASP Top 10</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">OWASP Top 10</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/github.com/cotonne/appsec-hitemapages/appsec/appsec_web_top10_owasp.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <p>La fondation <a href="https://www.owasp.org/index.php/Main_Page">OWASP</a> (pour Open Web Application Security Project) 
+est une organisation qui a pour but d’aider à améliorer la sécurité des applications WEB. 
+Aujourd’hui, elle propose des recommandations sur de nombreux sujets ainsi que des outils pour sécuriser 
+les applications.</p>
+
+<p>L’un des projets phare de l’OWASP est le TOP 10. Il en existe de nombreuses déclinaisons, le plus connu
+étant le <a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">TOP 10 WEB</a>. 
+Celui-ci recense les menaces les plus courantes sur les applications web. L’un des buts de ce classement
+est d’aider à la priorisation des tests de sécurité.</p>
+
+<p>Le tableau suivant présente le classement depuis 2007:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>2007</th>
+      <th>2010</th>
+      <th>2013</th>
+      <th>2017</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A1 - XSS</td>
+      <td>A1-Injection</td>
+      <td>A1-Injection</td>
+      <td>A1-Injection</td>
+    </tr>
+    <tr>
+      <td>A2 - Injection flaws</td>
+      <td>A2-Cross Site Scripting (XSS)</td>
+      <td>A2-Broken Authentication and Session Management</td>
+      <td>A2-Broken Authentication</td>
+    </tr>
+    <tr>
+      <td>A3 - Malicious File Execution</td>
+      <td>A3-Broken Authentication and Session Management</td>
+      <td>A3-Cross-Site Scripting (XSS)</td>
+      <td>A3-Sensitive Data Exposure</td>
+    </tr>
+    <tr>
+      <td>A4 - Insecure Direct Object Reference</td>
+      <td>A4-Insecure Direct Object References</td>
+      <td>A4-Insecure Direct Object References</td>
+      <td>A4-XML External Entities</td>
+    </tr>
+    <tr>
+      <td>A5 - CSRF</td>
+      <td>A5-Cross Site Request Forgery (CSRF)</td>
+      <td>A5-Security Misconfiguration</td>
+      <td>A5-Broken Access Control</td>
+    </tr>
+    <tr>
+      <td>A6 - Information Leakage and Improper Error Handling</td>
+      <td>A6-Security Misconfiguration</td>
+      <td>A6-Sensitive Data Exposure</td>
+      <td>A6-Security Misconfiguration</td>
+    </tr>
+    <tr>
+      <td>A7 - Broken Authentication and Session Management</td>
+      <td>A7-Insecure Cryptographic Storage</td>
+      <td>A7-Missing Function Level Access Control</td>
+      <td>A7-XSS</td>
+    </tr>
+    <tr>
+      <td>A8 - Insecure Cryptographic Storage</td>
+      <td>A8-Failure to Restrict URL Access</td>
+      <td>A8-Cross-Site Request Forgery (CSRF)</td>
+      <td>A8-Insecure Deserialization</td>
+    </tr>
+    <tr>
+      <td>A9 - Insecure Communications</td>
+      <td>A9-Insufficient Transport Layer Protection</td>
+      <td>A9-Using Components with Known Vulnerabilities</td>
+      <td>A9-Using Components with Known Vulnerabilities</td>
+    </tr>
+    <tr>
+      <td>A10 - Failure to Restrict URL Access</td>
+      <td>A10-Unvalidated Redirects and Forwards</td>
+      <td>A10-Unvalidated Redirects and Forwards</td>
+      <td>A10-Insufficient Logging &amp; Monitoring</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Plusieurs constatations:</p>
+<ul>
+  <li>Depuis 2010, la première menace est l’“Injection”. Il s’agit d’un terme assez large comme nous le verrons par la suite</li>
+  <li>XSS est passé de la premère à la septième place. Cela est principalement due à l’utilisation de frameworks web rendant plus difficile ce type de vulnérabilité.</li>
+  <li>Certaines menaces sont renommées, fusionnées ou disparaissent du classement. Par exemple, 2013-A4 et 2013-A7 ont été fusionnées en 2017-A4</li>
+</ul>
+
+<h2 id="2017-a1-injection">2017-A1 Injection</h2>
+
+<h3 id="présentation">Présentation</h3>
+
+<p>Le principe de l’injection est le fait qu’une application utilise des données non sûres qui entraine une 
+modification de son comportement.</p>
+
+<p>Trois éléments sont nécessaires:</p>
+<ul>
+  <li>Une source de données non sûres est utilisée</li>
+  <li>Un interpréteur qui va se servir des données</li>
+  <li>Un système intermédiaire qui transmet les données à l’interpréteur</li>
+</ul>
+
+<p>L’attaquant envoie des données construites de façon à modifier le comportement de l’interpréteur.
+Le problème est que le système intermédiaire ne fait aucune vérification et que les données se 
+retrouvent contenir un programme.</p>
+
+<p>Prenons un exemple courant: l’injection SQL</p>
+<ul>
+  <li>L’attaquant inclut dans la source de données des commandes SQL qui seront interprétées par le serveur SQL</li>
+  <li>L’interpréteur est le serveur SQL</li>
+  <li>Le système intermédiaire peut être un programme écrit en python, java, C#… qui transmet les données et appuie ces décisions sur ce que renvoie l’interpréteur.</li>
+</ul>
+
+<p>Prenons l’exemple suivant. Imaginons que l’application expose une URL comme:</p>
+
+<blockquote>
+  <p>http://host/path?username=john&amp;password=pass</p>
+</blockquote>
+
+<p>L’application est developpée en Java et utilise une base de données SQL</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">userCheck</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+		<span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="s">"SELECT * FROM users WHERE "</span> <span class="o">+</span>
+	             <span class="s">"username = '"</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"username"</span><span class="o">)</span> <span class="o">+</span> 
+	             <span class="s">"' AND password='"</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"password"</span><span class="o">)</span> <span class="o">+</span> <span class="s">"'"</span><span class="o">;</span>
+		<span class="k">try</span> <span class="o">{</span>
+		    <span class="n">Statement</span> <span class="n">statement</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">createStatement</span><span class="o">(</span> <span class="o">...</span> <span class="o">);</span>
+		    <span class="n">ResultSet</span> <span class="n">results</span> <span class="o">=</span> <span class="n">statement</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">(</span> <span class="n">query</span> <span class="o">);</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">results</span><span class="o">.</span><span class="na">first</span><span class="o">()</span> <span class="o">{</span>
+                       <span class="c1">// return secret information</span>
+                    <span class="o">}</span>
+	    	<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Normalement, la requête qui envoyée au serveur SQL est:</p>
+
+<blockquote>
+  <p>SELECT * FROM users  where username=’john’ and password=’pass’</p>
+</blockquote>
+
+<p>Si la table <strong>users</strong> contient une ligne avec une utilisateur appellé <strong>john</strong> dont le mot de passe
+est <strong>pass</strong>, alors la ligne est retournée à l’application Java qui renvoie les informations secrètes.
+Mais, que se passe-t’il si un attaquant accède à l’application avec l’URL suivante:</p>
+
+<blockquote>
+  <p>http://host/path?username=john&amp;password=mauvais_password’%20or%20’1’%3D’1</p>
+</blockquote>
+
+<p>L’application Java envoie alors la requête SQL suivante à la base:</p>
+
+<blockquote>
+  <p>SELECT * FROM  users where username=’john’ and password=’mauvais_password’ or ‘1’=’1’</p>
+</blockquote>
+
+<p>Décomposons un peu le résultat. En SQL :</p>
+<ul>
+  <li><strong>‘1’=’1’</strong> est toujours vrai</li>
+  <li>Supposons que l’utilisateur <strong>john</strong> existe, <strong>username=’john’</strong> est alors vrai</li>
+  <li>On peut supposer que mauvais_password n’est pas valide, donc <strong>password=’mauvais_password’</strong></li>
+</ul>
+
+<p>On a alors la requête suivante:</p>
+
+<blockquote>
+  <p>SELECT * FROM users WHERE (TRUE AND FALSE) OR TRUE</p>
+</blockquote>
+
+<blockquote>
+  <p>SELECT * FROM users WHERE FALSE OR TRUE</p>
+</blockquote>
+
+<blockquote>
+  <p>SELECT * FROM users WHERE TRUE</p>
+</blockquote>
+
+<blockquote>
+  <p>SELECT * FROM users</p>
+</blockquote>
+
+<p>La requête finale exécutée par le serveur SQL revient à renvoyer toute la table users.
+Or, dans le programme Java, il suffit qu’au moins une ligne soit renvoyée pour que
+la partie “secret information” s’exécute.
+Sans connaître le mot de passe de l’utilisateur, il a été possible d’obtenir les informations.</p>
+
+<p>Bien utilisée, une injection SQL peut permettre de récupérer l’ensemble du contenu de la base.</p>
+
+<p>Comme indiqué, il est possible de remplacer la partie “interpréteur”. On retrouve ainsi les injections suivantes:</p>
+
+<ul>
+  <li>Injection LDAP</li>
+  <li>Injection NoSQL</li>
+  <li>Injection de commandes</li>
+  <li>…</li>
+</ul>
+
+<h3 id="solutions">Solutions</h3>
+
+<p>Pour s’en protéger, il existe plusieurs solutions:</p>
+<ul>
+  <li>Échappement: les caractères sensibles, c’est-à-dire qui pourrait être traitées par l’interpréteur, doivent être rendus inopérants par l’application intermédiaire. Ainsi, la simple quote (‘) vue dans l’exemple précédent devient '.</li>
+  <li>Sanitization/Purification: ici, les caractères sensibles sont tout simplement supprimées</li>
+  <li>Validation: on vérifie le format du contenu. Ainsi, est-ce normal que le nom contient le signe égal? A noter que la validation est moins facile pour le mot de passe pour lequel on souhaite garder une forte entropie. Se reporter à la partie <a href="">Secure Coding</a> pour voir comment valider correctement une donnée</li>
+  <li>Prepared Statements: cette solution ne marche que si l’interpréteur est une base SQL. On pré-construit la requête via une [Prepared Statement)[https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html].</li>
+  <li>Dans une approche “défense-en-profondeur”, il est aussi possible de réduire les droits du compte utilisé pour interagir avec l’interpréteur. Dans le cas du serveur SQL, inutile que l’utilisateur est accès aux tables système par exemple. Si une exécution de commandes doit être faite, on peut utiliser des solutions comme Docker, chroot, SELinux,… pour isoler l’exécution de la commande.</li>
+</ul>
+
+<h3 id="outils">Outils</h3>
+
+<p>Des outils existent pour détecter ce type de problèmes.</p>
+
+<p>Via l’analyse statique de code, des outils comme <a href="https://rules.sonarsource.com/java/tag/SonarSecurity/RSPEC-3649">Sonar</a>, <a href="https://www.checkmarx.com/knowledge/knowledgebase/SQLi">Checkmarx</a>, <a href="https://lgtm.com/rules/3970084/">LGTM</a>, Veracode, Coverity… pour n’en citer quelqu’uns détectent la présence de telles failles.</p>
+
+<p>Il est aussi possible de découvrir ces vulnérabilités via une approche dynamique, On pourra citer les outils suivants:</p>
+<ul>
+  <li><a href="http://sqlmap.org/">SQLMap</a></li>
+  <li><a href="https://github.com/codingo/NoSQLMap">NoSQLMap</a></li>
+  <li><a href="https://medium.com/@cmpbilge/beginners-guide-to-sql-injection-sqlmap-owasp-zap-d1e6b1f97c3d">ZAProxy</a></li>
+</ul>
+
+<h2 id="a2-broken-authentication">A2-Broken Authentication</h2>
+
+<h3 id="présentation-1">Présentation</h3>
+
+<p>Beaucoup d’applications mettent en oeuvre des solutions d’authentification et d’autorisation.
+Ces mécanismes sont indispensables pour assurer les propriétés de confidentialité et d’intégrité des données.</p>
+
+<p>Si un attaquant arrive à outrepasser ou à détourner la phase d’authentification, il est impossible
+d’assurer que nous savons qui accède à notre système. La menace, représentée par 
+<a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication">2017-A2 Broken Authentication</a>
+est que le le processus d’authentification ne joue pas son rôle.</p>
+
+<p>Différents scénarios sont possibles pour :</p>
+<ul>
+  <li>L’authentification a mal été configurée ou mal implémentée.</li>
+  <li>Si un attaquant possède l’identifiant d’un utilisateur, il peut tenter de se connecter en essayant de deviner son mot de passe de l’utilisateur.
+ # L’attaquant teste de nombreux mots de passe différents sur l’interface de connexion. On parle alors de mode “online”. Le mot de passe peut-être extrèmement simple voire très courant. L’attaquant pourra alors s’appuyer sur des listes comme les <a href="https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt">10 millions de mots de passe les plus courants</a>
+ # L’attaquant a réussi à récupérer le mot de passe hashé dans la table des utilisateurs. Il tente alors de le retrouver via un mode “offline” ou hors-ligne.</li>
+  <li>L’attaquant a volé l’identifiant de session. L’utilisateur a pu ne pas se déconnecter sur un ordinateur public. L’application peut aussi transmettre l’<a href="https://www.php.net/manual/fr/session.idpassing.php">identifiant de session dans l’URL</a>. Si un attaquant récupère l’URL sur un forum par exemple, il pourrait utiliser l’identifiant pour voler la session.</li>
+</ul>
+
+<h3 id="solutions-1">Solutions</h3>
+
+<p>Les exemples de scénarios nous aident à imaginer des solutions simples:</p>
+<ul>
+  <li>Règles de mots de passe: il est courant d’avoir des règles comme ‘longueur du mot de passe supérieur à 8 caractères’. Le but de ce type de règles est de faire en sorte que l’attaquant doive essayer un grand nombre de mot de passe. Le nombre d’essais pour trouver le mot de passe en essayant, même de façon aléatoire, les combinaisons correspond à la “<a href="https://en.wikipedia.org/wiki/Password_strength">force du mot de passe</a>” ou d’entropie (une mesure de l’aspect aléatoire du mot de passe). Des <a href="https://github.com/jreesuk/entropizer">libraries</a> peuvent calculer cette valeur. Généralement, un mot de passe est considéré comme sûr quand son entropie est autour de 29 bits dans le cas d’attaque “online” et de 96 bits pour des attaques “offline” (cf. <a href="https://en.wikipedia.org/wiki/Password_strength#Required_bits_of_entropy">Wikipedia Password Strength</a>)</li>
+  <li>Ré-authentification sur les actions sensibles: si la session a été “volée”, l’attaquant ne connaît pas forcément le mot de passe de l’utilisateur. Pour toute action sensible, il est pertinent de redemander le mot de passe de l’utilisateur.</li>
+  <li>Multi-Factor Authentication: il est intéressant d’implémenter plusieurs solutions pour réussir l’authentification. C’est le but du MFA. Ainsi, si le mot de passe est compromis, il semble peu probable que l’attaquant réussisse aussi à compromettre le téléphone.</li>
+  <li>Respecter les guidelines pour les sessions: ne pas exposer l’identifiant de session, limiter la durée de validité, gérer correctement côté serveur…</li>
+  <li>Détecter les comportement suspects: il faut limiter le nombre de tentatives, en fonction de l’IP, de l’heure (soir) ou de la date (week-end), … “bloquer” le compte et prévenir son propriétaire et l’administrateur.</li>
+  <li>Stocker correctement les mots de passe en base: ils doivent être hashés et salés avec des algorithmes sûrs type bcrypt ou PBKDF2.</li>
+</ul>
+
+<h3 id="outils-1">Outils</h3>
+
+<p>Lors des tests, il peut être intéressant de mettre en oeuvre les mêmes outils que les aattaquants:</p>
+<ul>
+  <li><a href="https://hashcat.net/hashcat/">Hashcat</a> &amp; <a href="https://www.openwall.com/john/">john the ripper</a>: de manière régulère, vous pouvez extraire les mots de passes et tenter de les casser pour découvrir les mots de passe faibles.</li>
+  <li><a href="https://github.com/vanhauser-thc/thc-hydra/">Hydra</a></li>
+</ul>
+
+<h2 id="a3-sensitive-data-exposure">A3-Sensitive Data Exposure</h2>
+
+<h3 id="présentation-2">Présentation</h3>
+
+<p>L’“exposition de données sensibles” ou <strong>Sensitive Data Exposure</strong> est une menace pesant sur la récupération
+de données par l’attaquant. Les données ont d’abord une valeur métier: numéros de cartes de crédit, informations
+personnelles, mots de passes.</p>
+
+<p>L’exposition de ces données est possible de nombreuses façons:</p>
+<ul>
+  <li>Le numéro de carte bleue est affiché en clair dans le profil de l’utilisateur. Si l’utilisateur a laissé sa session ouverte sur un poste publique, un attaquant opportuniste peut récupérer ce numéro.</li>
+  <li>La réponse JSON ou un en-tête d’une API renvoie beaucoup trop d’informations. Toutes ne sont pas affichées à l’écran mais un attaquant peut repérer cette fuite de données.</li>
+  <li>Les données transites en clair sur le réseau WiFi dans un aéroport. Via une écoute passive, un attaquant peut facilement les récupérer.</li>
+  <li>Les mots de passes sont stockées en clair dans la base. Si une faille type SQL Injection était présente dans l’application, il serait trivial pour un attaquant d’avoir accès à ces mots de passe.</li>
+</ul>
+
+<h3 id="solutions-2">Solutions</h3>
+
+<p>Ici, il est important mettre en place du chiffrement efficace pour assurer la confidentialité des données.
+Pour ce faire, il faut vérifier :</p>
+<ul>
+  <li>Que les données sont chiffrées que ce soit en transit ou lorsqu’elles sont stockées.</li>
+  <li>De respecter les guides pour le choix et la configuration des algorithmes de chiffrement</li>
+  <li>Que les clés soient fortes et correctement protégées</li>
+</ul>
+
+<h3 id="outils-2">Outils</h3>
+
+<ul>
+  <li><a href="https://ssl-config.mozilla.org/">Mozilla SSL Configuration Generator</a></li>
+</ul>
+
+<h2 id="a4-xml-external-entities">A4-XML External Entities</h2>
+
+<h3 id="présentation-3">Présentation</h3>
+
+<h3 id="solutions-3">Solutions</h3>
+
+<h3 id="outils-3">Outils</h3>
+
+<h2 id="a5-broken-access-control">A5-Broken Access Control</h2>
+
+<h3 id="présentation-4">Présentation</h3>
+
+<h3 id="solutions-4">Solutions</h3>
+
+<h3 id="outils-4">Outils</h3>
+
+<h2 id="a6-security-misconfiguration">A6-Security Misconfiguration</h2>
+
+<h3 id="présentation-5">Présentation</h3>
+
+<h3 id="solutions-5">Solutions</h3>
+
+<h3 id="outils-5">Outils</h3>
+
+<h2 id="a7-xss">A7-XSS</h2>
+
+<h3 id="présentation-6">Présentation</h3>
+
+<h3 id="solutions-6">Solutions</h3>
+
+<h3 id="outils-6">Outils</h3>
+
+<h2 id="a8-insecure-deserialization">A8-Insecure Deserialization</h2>
+
+<h3 id="présentation-7">Présentation</h3>
+
+<h3 id="solutions-7">Solutions</h3>
+
+<h3 id="outils-7">Outils</h3>
+
+<h2 id="a9-using-components-with-known-vulnerabilities">A9-Using Components with Known Vulnerabilities</h2>
+
+<h3 id="présentation-8">Présentation</h3>
+
+<h3 id="solutions-8">Solutions</h3>
+
+<h3 id="outils-8">Outils</h3>
+
+<h2 id="a10-insufficient-logging--monitoring">A10-Insufficient Logging &amp; Monitoring</h2>
+
+<h3 id="présentation-9">Présentation</h3>
+
+<h3 id="solutions-9">Solutions</h3>
+
+<h3 id="outils-9">Outils</h3>
+
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        
+    </div>
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'appsec-hitema'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2019 , Licence : CC BY-SA 3.0 FR.  <br />
+<span>Page last updated:</span> July 3, 2016<br/> Site last generated: Dec 19, 2019 <br />
+<p><img src="images/hitema.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
